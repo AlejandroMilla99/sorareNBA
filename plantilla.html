@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Fantasy Predictor Milla</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <link rel="stylesheet" href="css/plant.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+      <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+      </head>
+      
+<body>
+    <div class="header">  
+      <div class="header__logo" style="width: 15.5%;">
+        <a href="{{ url_for('inicio') }}">
+          <img src="{{ url_for('static', filename='img/logoF.png') }}" class="imagen-con-brillo" style="width: 40%; margin-top: 2%;"></img>
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a href="inicio.html" class="navbar__link"><i data-feather="Inicio"></i><span>Home</span> </a>
+            </li>
+            <li class="navbar__item">
+              <a href="bigdata.html" class="navbar__link"><i data-feather="Big data"></i><span>Players data</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="miequipo.html" class="navbar__link"><i data-feather="Mi equipo"></i><span>Lineup builder</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="myplayers.html" class="navbar__link"><i data-feather="My Players"></i><span>My players</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="mybuilder.html" class="navbar__link"><i data-feather="Mi equipo"></i><span>My builder</span></a>        
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- partial -->
+      
+
+    <!-- Contenido de la p�gina -->
+    <!-- SorareButton Contenido especifico de cada pagina ira aqui -->
+    <!-- Contenido especifico de cada pagina ira aqui -->
+    <div class="contenido">
+        <link rel="stylesheet" href="css/backg.css">
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        
+    </div>
+
+    <!-- Pie de p�gina -->
+    <footer style="text-align: center; margin-top: 5%;" class="pie-de-pagina">
+      <p style="font-weight: bold">Redes sociales</p>
+      <div class="redes-sociales">
+        <a href="https://www.linkedin.com/in/alejandro-milla-ram%C3%ADrez-3ba742209/"><img style="width: 2%;" src="{{ url_for('static', filename='img/linkedin.png') }}" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/alex_milla99/"><img style="width: 2%;" src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram"></a>
+        <a href="mailto:alejandromilla99@gmail.com"><img style="width: 2%;" src="{{ url_for('static', filename='img/email.png') }}" alt="Correo Electrónico"></a>
+      </div>
+  </footer>
+</body>
+</html>

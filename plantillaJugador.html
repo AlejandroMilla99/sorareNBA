@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ player_name }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <link rel="stylesheet" href="css/plant.css">
+      <link rel="stylesheet" href="css/cardPlayer.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+      <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/9575b918a2.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+      </head>
+      
+<body>
+    <div class="header">  
+      <div class="header__logo" style="width: 15.5%;">
+        <a href="{{ url_for('inicio') }}">
+          <img src="{{ url_for('static', filename='img/logoF.png') }}" class="imagen-con-brillo" style="width: 40%; margin-top: 2%;"></img>
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a href="inicio.html" class="navbar__link"><i data-feather="Inicio"></i><span>Home</span> </a>
+            </li>
+            <li class="navbar__item">
+              <a href="bigdata.html" class="navbar__link"><i data-feather="Big data"></i><span>Players data</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="miequipo.html" class="navbar__link"><i data-feather="Mi equipo"></i><span>Lineup builder</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="myplayers.html" class="navbar__link"><i data-feather="My Players"></i><span>My players</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="mybuilder.html" class="navbar__link"><i data-feather="Mi equipo"></i><span>My builder</span></a>        
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- partial -->      
+    <h1>Player details</h1>
+
+    <div class="card">
+      <div class="front bg-red-box">
+        <div style="display: inline-flex; width: 100%; margin-top: 2%;">
+          <img src={{ player.jugador.teamAvatarUrl }} style='width: 15%;'>
+          <div style="margin-top: 1%;">
+            <p style="font-size: 35px;">{{ player.jugador.name }}</p>
+          </div>
+        </div>
+          <div style="margin-top: 20%; text-align: center; display: contents;">
+            <p id="avatar-container" style="text-align: center;"></p>
+
+            <span class="filter-indicatorCard" style="display: flex; flex-direction: row; align-items: center;">
+              <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative;">Price:&nbsp</p>
+              <div style="color: white; position: relative; margin-left: 5px;" class="cardValor">{{ player.jugador.floorPrice }} €</div>
+            </span>
+
+            <div style="display: flex; margin-top: 0.5%;">
+            <span class="filter-indicatorCard" style="display: flex; flex-direction: row; align-items: center;">
+              <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative;" >Cap:&nbsp</p>
+              <div style="color: white; position: relative; margin-left: 5px;" class="cardCap">{{ player.jugador.actualCap }} pts</div>
+            </span>
+
+            <span class="filter-indicatorCard" style="display: flex; flex-direction: row; align-items: center;">
+              <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative;" >Future cap:&nbsp</p>
+              <div style="color: white; position: relative; margin-left: 5px;" class="cardCap">{{ player.jugador.futureCap }} pts</div>
+            </span>
+            </div>
+
+            <div style="display: flex; margin-top: 0.5%;">
+            <span class="filter-indicatorCard" style="display: flex; flex-direction: row; align-items: center;">
+              <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative;">Proj:&nbsp</p>
+              <div style="color: white; position: relative; margin-left: 5px;" class="cardSubida">{{ player.jugador.projectionScore }} pts</div>
+            </span>
+
+            <span class="filter-indicatorCard" style="display: flex; flex-direction: row; align-items: center;">
+              <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative;">RatioPute:&nbsp;</p>
+              <div style="color: white; position: relative; margin-left: 5px;" class="cardSubida">{{ player.jugador.finalRatio }}</div>
+            </span>
+          </div>
+
+          </div>
+          <div class="bottom" style="height: 23%">
+              <button id="verGraficas" class="buttonExotic" style="width: 40%;">See graphs</button>
+          </div>
+      </div>
+      <div class="back">
+        <div style="display: inline-flex; width: 100%; margin-top: -1%;">
+          <img src={{ player.jugador.teamAvatarUrl }} style='width: 15%;'>
+          <div style="margin-top: 1%;">
+            <p style="font-size: 35px;">{{ player.jugador.name }}</p>
+          </div>
+        </div>
+          <div class="section" style="height: 33%; font-size: 26px; margin-top: 45px;">
+            <div style="width: 100%;">
+              <canvas id="graficoJornadas"></canvas>
+            </div>
+          </div>
+          <div class="section" style="height: 33%; font-size: 26px; margin-top: 45px;">
+            <div style="width: 100%;">
+              <canvas id="graficoValores"></canvas>
+            </div>
+          </div>
+          <div class="bottom" style="height: 27%">
+              <button id="verJugador" class="buttonExotic">See player</button>
+          </div>
+      </div>
+  </div>
+
+  <script>
+    var player = {{ player|tojson|safe }};
+    
+    if (player.jugador.avatarUrl === "No") {
+        // Si avatarUrl es "No", muestra el icono
+        document.getElementById("avatar-container").innerHTML = "<i style='font-size: xx-large' class='fa fa-times' aria-hidden='true'></i>";
+    } else {
+        // Si avatarUrl no es "No", muestra la imagen
+        document.getElementById("avatar-container").innerHTML =
+         `
+         <a href="/${player.jugador.name}">
+         <img alt="${player.jugador.name}" style="width:50%; margin-bottom: 5%;" src="${player.jugador.avatarUrl}">
+         </a>
+         `;
+    }
+</script>
+
+  <script>
+    const verMetricasBtn = document.getElementById("verGraficas");
+    const verPrediccionBtn = document.getElementById("verJugador");
+    const card = document.querySelector('.card');
+    const front = document.querySelector('.front');
+
+
+    verMetricasBtn.addEventListener('click', () => {
+        card.classList.add('active');
+    });
+
+    verPrediccionBtn.addEventListener('click', () => {
+        card.classList.remove('active');
+    });
+
+</script>
+
+<script>
+  // Datos de ejemplo (reemplaza esto con los datos reales)
+  const registroPuntoss = {{ registroPuntos | tojson | safe }};
+
+  // Obtiene las claves (números de jornada) y valores (puntos) del registro
+  const jornadas = Object.keys(registroPuntoss);
+  const puntos = Object.values(registroPuntoss);
+
+  // Crea un canvas y establece su contexto
+  const canvas = document.getElementById('graficoJornadas');
+  const ctx = canvas.getContext('2d');
+
+  // Configura la paleta de colores para la línea
+  const color = 'red'; // Puedes cambiar el color si lo deseas
+
+  // Dibuja una línea continua
+  ctx.beginPath();
+  ctx.moveTo(0, canvas.height - puntos[0][0]); // Mueve el punto de inicio al primer valor
+
+  var maxYValue = puntos[0][0];
+  var minYValue = puntos[0][0];
+
+  // Dibuja la línea conectando todos los puntos de todas las jornadas
+  for (let i = 0; i < puntos.length; i++) {
+    for (let j = 0; j < puntos[i].length; j++) {
+      maxYValue = Math.max(maxYValue, puntos[i][j]) + 2;
+      minYValue = Math.max(Math.min(puntos[i][j], minYValue) - 2, 0);
+      ctx.lineTo((i + j / puntos[i].length) * (canvas.width / (puntos.length - 1)), canvas.height - puntos[i][j]);
+    }
+  }
+
+  ctx.strokeStyle = color; // Establece el color de la línea
+  ctx.lineWidth = 2; // Establece el ancho de la línea
+  ctx.stroke(); // Dibuja la línea
+
+    // Agrega las etiquetas personalizadas en el eje X e Y
+    var maxYValue = Math.max(...puntos) + 2;
+  var minYValue = Math.max(Math.min(...puntos) - 2, 0);
+
+  // Crea el gráfico de línea
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: jornadas.map(jornada => `${jornada.replace(/.*?(G[^.]+).*$/, '$1')}`),
+      datasets: [
+        {
+          label: 'Sorare points',
+          data: puntos, // Puntos en el eje Y
+          borderColor: color, // Color de la línea
+          fill: false, // No rellenar debajo de la línea
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: maxYValue,
+          min: minYValue,
+          ticks: {
+            stepSize: (maxYValue - minYValue) / 4,
+            callback: function (value, index, values) {
+            if (value === maxYValue) return maxYValue.toString() + " pts";
+            if (value === minYValue) return minYValue.toString() + " pts";
+            if (value === minYValue + (maxYValue - minYValue) / 4) return parseInt(value.toString()) + " pts";
+            if (value === minYValue + 2 * (maxYValue - minYValue) / 4) return parseInt(value.toString()) + " pts";
+            if (value === minYValue + 3 * (maxYValue - minYValue) / 4) return parseInt(value.toString()) + " pts";
+            return '';
+            },
+          },
+        },
+        x: {
+          beginAtZero: false,
+          max: jornadas.length - 1,
+          callback: function (value, index, values) {
+            return  jornadas[value];
+          },
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        display: true, // Habilita las etiquetas de datos
+        color: 'black', // Color de las etiquetas
+        anchor: 'end', // Alineación de las etiquetas
+      },
+    },
+  });
+</script>
+
+
+
+
+
+
+
+    <!-- Agrega más datos del jugador aquí -->
+    <div class="contenido">
+        <link rel="stylesheet" href="css/backg.css">
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        
+    </div>
+
+    <!-- Pie de p�gina -->
+    <footer style="text-align: center; margin-top: 5%;" class="pie-de-pagina">
+      <p style="font-weight: bold">Redes sociales</p>
+      <div class="redes-sociales">
+        <a href="https://www.linkedin.com/in/alejandro-milla-ram%C3%ADrez-3ba742209/"><img style="width: 2%;" src="{{ url_for('static', filename='img/linkedin.png') }}" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/alex_milla99/"><img style="width: 2%;" src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram"></a>
+        <a href="mailto:alejandromilla99@gmail.com"><img style="width: 2%;" src="{{ url_for('static', filename='img/email.png') }}" alt="Correo Electrónico"></a>
+      </div>
+  </footer>
+</body>
+</html>

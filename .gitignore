@@ -1,0 +1,13 @@
+# Gitignore personalizado
+.idea/
+data/
+players/
+market_values/
+log.txt
+start.bat
+chromeSession/
+.project
+.pydevproject
+__pycache__/
+bigdata.html
+bigdataUpdate.html

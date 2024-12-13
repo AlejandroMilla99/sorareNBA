@@ -1,0 +1,1037 @@
+/* Estilos generales */
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+/* Estilos iniciales para los enlaces */
+a {
+  --s: 0.1em; /* the thickness of the line */
+  --c: #f0ecec; /* the color */
+
+  color: #0000;
+  padding-bottom: var(--s);
+  background: linear-gradient(90deg, var(--c) 50%, #000 0)
+      calc(100% - var(--_p, 0%)) / 200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition:  0.5s all;
+}
+
+/* Estilos en hover */
+a:hover {
+  --_p: 100%;
+  font-weight: bold;
+}
+
+p {
+  color: #ffffff; /* Establece el color del texto de los enlaces (negro en este caso) */
+  font-size: 16px; /* Tamaño de fuente inicial */
+  font-weight: normal;
+}
+
+h1 {
+  color: #ffffff; /* Establece el color del texto de los enlaces (negro en este caso) */
+  font-size: 20px; /* Tamaño de fuente inicial */
+  font-weight: bold;
+}
+
+
+.imagen-con-brillo {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.imagen-con-brillo:hover {
+  transform: scale(1.05); /* Opcional: aumenta un poco el tamaño de la imagen al pasar el cursor por encima */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Brillo rojo alrededor de la imagen */
+}
+
+
+/* Estilo del contenedor de la tabla */
+.tabla-container {
+    width: 60%; /* El 60% del ancho total (100% - 20% a cada lado) */
+    margin-top: 20%;
+    overflow-x: auto; /* Scroll horizontal si es necesario */
+}
+
+/* Estilo de la tabla */
+/* Estilo de la tabla */
+table {
+    table-layout: auto;
+    border-collapse: collapse;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    width: 70%; /* Ajusta el ancho de la tabla según tus necesidades */
+    margin-left: 14%;
+}
+
+th, td {
+    text-align: center;
+    padding: 18px;
+    border: 1px solid #ddd;
+    width: 14%;
+    transition:  color 0.2s; /* Agrega transición suave */
+    width: fit-content;
+}
+
+th {
+    background-color: #e74c3c; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fondo gris claro para filas pares */
+    transition: 0.2s;
+}
+
+tr:nth-child(odd) {
+    background-color: #dfdddd; /* Fondo gris claro para filas impares */
+    transition: 0.2s;
+}
+
+/* Efecto de hover para filas */
+tr:not(:first-child):hover {
+    background-color: #a51e0f; /* Fondo rojo más oscuro al pasar el cursor */
+    color: white; /* Texto blanco al pasar el cursor */
+}
+
+/* Scrollbars */
+table {
+  border-collapse: collapse;
+  white-space: nowrap;
+  overflow-y: hidden;
+  margin-left: 7.2%;
+  position: relative;
+  z-index: 15;
+  width: 85%;
+}
+
+/* Alineación vertical y horizontal */
+td {
+    vertical-align: middle;
+}
+
+/* Estilo de las etiquetas th al pasar el cursor y después */
+th:hover {
+    cursor: pointer;
+    background-color: white; /* Fondo blanco al pasar el cursor */
+    color: #e74c3c; /* Texto rojo al pasar el cursor */
+}
+
+
+button {
+  cursor: pointer;
+  font-size: medium;
+  background-color: #e74c3c;
+  color: white;
+  padding: 7px 10px;
+  margin: 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: 0.6s;
+  transition: 0.6s all;
+  width:10%;
+  font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: white;
+    color: #e74c3c;
+    font-size: 16px;
+  }
+  
+  .buttonExotic {
+    cursor: pointer;
+    font-size: medium;
+    width: 10%;
+    background-color: #2078ac;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    alignment: center;
+    align-items: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    width:100%;
+  }
+  
+  .buttonExotic:hover {
+    background-color: #4fa5d5;
+    width:100%;
+  }
+  
+  .buttonExoticTrain {
+    cursor: pointer;
+    font-size: medium;
+    width: 210px;
+    margin-left:45%;
+    background-color: #2078ac;
+    color: white;
+    padding: 7px 10px;
+  
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    alignment: center;
+    align-items: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  
+  }
+  
+  .buttonExoticTrainDisabled {
+    font-size: medium;
+    width: 210px;
+    margin-left:45%;
+    background-color: gray;
+    color: white;
+    padding: 7px 10px;
+  
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    alignment: center;
+    align-items: center;
+  
+  }
+  
+  .buttonExoticTrainDisabled:hover {
+  
+    background-color: gray;
+  
+  
+  }
+  
+  .buttonExoticTrain:hover {
+    background-color: #4fa5d5;
+    width: 210px;
+  }
+  
+  .buttonExotic2 {
+    cursor: pointer;
+    font-size: medium;
+    width: 10%;
+    background-color: #2078ac;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    alignment: center;
+    align-items: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    width:100%;
+  }
+  
+  .buttonExotic2:hover {
+    background-color: #4fa5d5;
+    width:100%;
+  }
+
+  button.cancel{
+
+    width: 50%;
+    height: 100%;
+    background-color: #2078ac;
+    color: white;
+  
+    margin: 8px 0;
+    border: none;
+  
+    cursor: pointer;
+    alignment: right;
+    align-items: end;
+  
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+  
+  
+  }
+  
+  button.cancel:hover {
+    background-color: #4fa5d5;
+    color: white;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px;
+  }
+  
+  .card {
+    width: 300px;
+    height: 400px;
+    margin: 0 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 4;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-icon {
+    font-size: 50px;
+    color: #007bff;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .card-text {
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card:after {
+    border-bottom: calc(0.375rem - 2px) solid transparent;
+    border-top-color: hotpink;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    border-top-style: solid;
+    border-top-width: 4px;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+  
+  #username {
+    display: inline-block;
+    animation: typing 3s steps(18) forwards;
+  }
+  
+  .cuadro-texto {
+    border: 4px solid;
+    border-image: linear-gradient(21deg, #d555dc, #f6abfc) 1;
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+    font-family: Calibri;
+    width: 50%;
+    margin-left: 25%;
+    height: 220px;
+    top: 213px;
+    bottom: 20px;position: fixed;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+    to {
+      width: 100%
+    }
+  }
+  
+  #cursor {
+    display: inline-block;
+    animation: blink .7s infinite;
+  }
+  
+  @keyframes blink {
+    from, to { opacity: 1 }
+    50% { opacity: 0 }
+  }
+  
+  .invisible-div {
+    height: 30px;
+    visibility: hidden;
+    clear: both;
+  }
+  
+  .loader3 {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #loader3 {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url('../images/loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #loader3.show {
+    display: flex;
+  }
+  
+  .loader2 {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #loader2 {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url('../img/loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #actu {
+    position: fixed;
+    z-index: 1004;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/actu.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .act {
+    position: fixed;
+    z-index: 1003;
+    margin-left: -43%;
+    margin-top: -354px;
+    width: 20%;
+    height: 10%;
+  
+  }
+  
+  #loader2.show {
+    display: flex;
+  }
+  
+  #loader {
+    position: fixed;
+    z-index: 999;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 49, 49, 0.85);
+    display: none;
+  }
+  
+  #progress {
+    width: 1%;
+    height: 30px;
+    background-image: linear-gradient(to right, #790808, #dfb80b);
+    animation: fill-progress 410s linear forwards;
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+  }
+  
+  @keyframes fill-progress {
+    0% {
+       width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* capa oscura semitransparente */
+    z-index: 9999; /* mayor que cualquier otro elemento en la página */
+    display: none; /* ocultar inicialmente */
+  }
+  
+  #my-dialog {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    z-index: 10000; /* mayor que la capa oscura */
+    background-color: white;
+    padding: 20px;
+    width: 300px;
+    height: 250px;
+    border-top: 5px solid dodgerblue;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.44);
+  }
+  
+  #close-dialog {
+    margin-top: 10px;
+  }
+  
+  #dialog-wrapper {
+    pointer-events: none;
+  }
+  
+  dialog[open] {
+    pointer-events: auto;
+  }
+  
+  .fade-in-image {
+    opacity: 0;
+    animation: fade-in 2s ease-in-out forwards;
+    filter: blur(10px);
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  
+  .d-none{
+    display:none;
+  }
+/* Estilo de las filas alternadas */
+ul li:nth-child(odd) {
+  background-color: #f2f2f2; /* Fondo gris claro para filas impares */
+  color: black; /* Texto negro */
+  position:relative;
+  z-index: 99999;
+}
+
+ul li:nth-child(even) {
+  background-color: white; /* Fondo blanco para filas pares */
+  color: black; /* Texto negro */
+  position:relative;
+  z-index: 99999;
+}
+
+/* Efecto de hover para filas */
+ul li:hover {
+  background-color: #e74c3c; /* Fondo rojo al pasar el cursor */
+  color: white; /* Texto blanco al pasar el cursor */
+}
+
+
+.box{
+  position: relative;
+}
+
+.input {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 4px solid #ffd52d;
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 18px;
+  color: #ffd52d;
+  outline: none;
+  transition: .5s;
+}
+.box:hover input{
+  width: 300px;
+  background: #3b3640;
+  border-radius: 10px;
+}
+
+
+.box i{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(150%,150%);
+  font-size: 26px;
+  color: #ffd52d;
+  transition: .2s;
+}
+.box:hover i{
+  opacity: 0;
+  z-index: -1;
+}
+
+#searchInput {
+  width: 220px; /* Ancho inicial (círculo) */
+  height: 40px; /* Altura inicial (círculo) */
+  border-radius: 5%; /* Hace que sea un círculo */
+  transition: all 0.5s ease; /* Transición para todos los cambios (0.3s) */
+  border: 3px solid #e74c3c;
+  margin-left: 2%;
+  color: white;
+  background:transparent;
+  margin-top: 1%;
+  font-size: large;
+  padding-left: 0.5%;
+}
+
+#searchInput:hover,
+#searchInput:focus {
+  border-radius: 15%; /* Un borde redondeado para que no sea completamente rectangular */
+  border: 3px solid #fff;
+}
+
+/*
+.cardFormacion {
+
+  margin: 10px;
+  display: inline-table;
+  text-align: center;
+  line-height: 50px;
+
+  width: 170px;
+  height: 220px;
+  background: linear-gradient(71deg, #110c0c, #1b1919, #110c0c);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 4;
+}
+*/
+
+.cardFormacion:hover {
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.field {
+  text-align: center;
+}
+
+select {
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: rgb(19, 17, 17);
+  background-image: none;
+  cursor: pointer;
+  transition: .25s all ease;
+}
+
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+  transition: .45s all ease;
+}
+
+.option {
+  background: rgb(19, 18, 18);
+  color: white;
+}
+
+.option:hover {
+  background: red;
+  color: white;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+
+.jugadorSelector {
+  display: none;
+  z-index: 80;
+}
+
+.infoButton {
+  position: absolute;
+  bottom: 65%;
+  left: 60%;
+  padding: 16px 19px;
+  font-size: 12px;
+  background-color: #e74c3c;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 0 45px 0 14px;
+}
+
+
+.infoButton:hover {
+  background-color: white;
+  color: #e74c3c;
+  font-size: 12px;
+}
+
+.cambioButton {
+  right: 51%;
+  width: 21%;
+  bottom: 63%;
+  font-size: 15px;
+  height: 20%;
+  position: absolute;
+}
+
+.cambioButton:hover {
+  background-color: white;
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+.cardFormacion {
+  position: relative;
+  margin: 10px;
+  display: inline-table;
+  text-align: center;
+  line-height: 50px;
+  width: 200px;
+  height: 250px;
+  border-radius: 45px;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-in-out;
+  z-index: 4;
+}
+
+.cardFormacion .front,
+.cardFormacion .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #080509, #1c1717, #080509);
+  border-radius: 45px;
+  padding: 40px;
+}
+
+.cardFormacion .front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardFormacion .front .top {
+  width: 70%;
+  height: 80%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid #2f4ad0;
+  font-size: 2em;
+}
+
+.cardFormacion .front .bottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardFormacion .back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform:  rotateY(-180deg);
+}
+
+.cardFormacion .back .section {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.cardFormacion .back .bottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cardFormacion.active {
+  transform:  rotateY(180deg);
+}
+
+.tooltip {
+  width: 300px;
+  max-height: 250px; /* Establece una altura máxima para el desplazamiento vertical */
+  text-align: center;
+  position: fixed;
+  font-size: small;
+  background-color: red;
+  color: white;
+  border: wheat;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 999; /* Asegura que el tooltip esté en la parte superior */
+  font-family:  'Calibri', 'Trebuchet MS', sans-serif;
+
+  /* Estilos adicionales para texto de varias líneas */
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+/* SLIDER */
+
+.range_container {
+  display: flex;
+  flex-direction: column;
+  width: 7%;
+  margin-left: 2%;
+}
+
+.sliders_control {
+  position: relative;
+  min-height: 19%;
+}
+
+.form_control {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  color: #7a6e6e;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;  
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: #f7f7f7;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+  -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+}
+
+input[type="number"] {
+  color: #8a8383;
+  width: 59px;
+  height: 25px;
+  font-size: 16px;
+  border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  background-color: #C6C6C6;
+  pointer-events: none;
+}
+
+#fromSliderPrice {
+  height: 0;
+  z-index: 1;
+}
+
+#fromSliderCap {
+  height: 0;
+  z-index: 1;
+}
+
+
+#fromSliderProj {
+  height: 0;
+  z-index: 1;
+}
+
+
+#fromSliderRatioPute {
+  height: 0;
+  z-index: 1;
+}
+
+span.filter-indicator {
+  background-color: rgb(55, 46, 46);
+  margin-left: 1%;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 1px 10px 1px rgba(51, 46, 46, 0.5);
+  box-shadow: 0 5px 5px 1px rgba(255, 0, 0, 0.2);
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones */
+  position: relative;
+  z-index: 99;
+}
+
+span.filter-indicator:hover {
+  transform: scale(1.06); /* Efecto de sobresalir al hacer hover */
+  box-shadow:  0 0 7px 1px rgb(248, 36, 36); /* Brillo interno al hacer hover */
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones en el hover */
+}
+
+span.filter-indicatorCard {
+  background-color: rgb(55 46 46 / 54%);
+  color: white;
+  border-radius: 10%;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 10px 1px rgb(51 46 46 / 10%);
+  box-shadow: 0 5px 5px 1px rgb(255 0 0 / 20%);
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  z-index: 99;
+  margin-top: 12px;
+  text-align: center;
+  width: 130px;
+  height: 45px;
+  justify-content: center;
+}
+
+span.filter-indicatorCard:hover {
+  transform: scale(1.06); /* Efecto de sobresalir al hacer hover */
+  box-shadow:  0 0 7px 1px rgb(248, 36, 36); /* Brillo interno al hacer hover */
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones en el hover */
+}
+
+span.filter-indicatorL {
+  background-color: rgb(100, 16, 23);
+  margin-left: 1%;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 10px 1px rgba(51, 46, 46, 0.5);
+  box-shadow: 0 5px 5px 1px rgba(255, 0, 0, 0.2);
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones */
+  position: relative;
+  z-index: 99;
+}
+
+span.filter-indicatorL:hover {
+  transform: scale(1.06); /* Efecto de sobresalir al hacer hover */
+  box-shadow:  0 0 7px 1px rgb(212, 209, 209); /* Brillo interno al hacer hover */
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones en el hover */
+}
+
+span.filter-indicatorI {
+  background-color: rgb(160, 100, 11);
+  margin-left: 1%;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 10px 1px rgba(117, 69, 7, 0.493);
+  box-shadow: 0 5px 5px 1px rgba(255, 0, 0, 0.2);
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones */
+  position: relative;
+  z-index: 99;
+}
+
+span.filter-indicatorI:hover {
+  transform: scale(1.06); /* Efecto de sobresalir al hacer hover */
+  box-shadow:  0 0 7px 1px rgb(173, 172, 172); /* Brillo interno al hacer hover */
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones en el hover */
+}
+
+
+
+#field2 {
+  display: inline-block;
+  text-align: center;
+}
+
+
+#field {
+  display: inline-block;}
+
+.jugadores {
+  width: 100%;
+  display: block;
+  font-size: 17px;
+  height: 22px;
+  padding-left: 6px;
+}

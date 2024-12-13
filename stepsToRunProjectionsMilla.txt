@@ -1,0 +1,4 @@
+. Run app.py to generate datos_jugadores.json
+. Run this command in a CLI: "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\Users\aleja\Desktop\Proyectos\SorareNBA\SorareGit\SorareNBAweb\chromeSession" with the particular path to your chrome executable.
+. In the chrome window prompted, go to SorareData, click on the Lineup Builder, click on concept players and go all the way down through the table until it reaches the final of it.
+. Run addProjectionsParameters.py to generate datos_jugadores_update.json

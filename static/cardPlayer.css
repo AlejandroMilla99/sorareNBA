@@ -1,0 +1,187 @@
+
+.card {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  height: 800px;
+  margin: 2% auto;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  z-index: 99;
+
+}
+
+.bg-red-box::after,
+.bg-green-box::after,
+.bg-white-box::after,
+.bg-yellow-box::after,
+.bg-blue-box::after {
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  content: "";  
+  z-index: -1;
+  border-radius: 45px;
+}
+
+.bg-red-box::after {
+  background: linear-gradient(71deg, #0d1212, #a03d3d, #0d1212);
+}
+
+.bg-red-box:hover {
+  position: relative; 
+  transition: all 0.8s;
+}
+
+.bg-red-box:hover {
+  box-shadow: 2px 7px 15px #d91919; 
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 2px solid transparent;
+  background: linear-gradient(71deg, #080509, #1c1717, #080509);
+    background-clip: border-box;
+  background-clip: padding-box;
+  border-radius: 45px;
+  padding: 40px;
+}
+
+.card .front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .front .top {
+  width: 70%;
+  height: 80%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid #2f4ad0;
+  font-size: 2em;
+}
+
+.card .front .bottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform:  rotateY(-180deg);
+}
+
+.card .back .section {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.card .back .bottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card.active {
+  transform:  rotateY(180deg);
+}
+
+
+
+.blockP {
+  width: 180px !important;
+}
+
+.buttonExotic {
+  cursor: pointer;
+  font-size: medium;
+  background-color: #e74c3c;
+  color: white;
+  padding: 7px 10px;
+  margin: 6%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: 0.6s;
+  transition: 0.6s all;
+  width:50%;
+  font-weight: bold;
+}
+
+.buttonExotic:hover {
+  background-color: white;
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+#percentage {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  animation: count-up 3s ease-in-out;
+}
+
+#percentage2 {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  animation: count-up 3s ease-in-out;
+}
+
+.subrayado {
+  text-decoration: underline;
+  text-decoration-color: #2f4ad0;
+}
+
+span.filter-indicatorCard {
+  background-color: rgb(55 46 46 / 54%);
+  color: white;
+  border-radius: 10%;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 1px 10px 1px rgb(51 46 46 / 10%);
+  box-shadow: 0 5px 5px 1px rgb(255 0 0 / 20%);
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  z-index: 99;
+  margin-top: 12px;
+  text-align: center;
+  width: 200px;
+  margin-right: 3%;
+  align-items: center;
+  justify-content: center;
+}
+
+span.filter-indicatorCard:hover {
+  transform: scale(1.06); /* Efecto de sobresalir al hacer hover */
+  box-shadow:  0 0 7px 1px rgb(248, 36, 36); /* Brillo interno al hacer hover */
+  transition: transform 0.4s, box-shadow 0.4s; /* Agregar transiciones en el hover */
+}

@@ -1,0 +1,1687 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Fantasy Predictor Milla</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <link rel="stylesheet" href="css/plant.css">
+      <link rel="stylesheet" href="css/estilo.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+      <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link
+      rel="stylesheet"
+      data-purpose="Layout StyleSheet"
+      title="Web Awesome"
+      href="/css/app-wa-082ffc6e17c58ac77a4cd5bca1b9fd8c.css?vsn=d"
+    >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+        href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css"
+      >
+      <script src="https://kit.fontawesome.com/9575b918a2.js" crossorigin="anonymous"></script>
+      </head>
+      
+<body style="text-align: center;">
+    <div class="header">  
+      <div class="header__logo" style="width: 15.5%;">
+        <a href="{{ url_for('inicio') }}">
+          <img src="{{ url_for('static', filename='img/logoF.png') }}" class="imagen-con-brillo" style="width: 40%; margin-top: 2%;"></img>
+          </a>
+        </div>
+        <nav class="navbar">
+          <ul class="navbar__menu">
+            <li class="navbar__item">
+              <a href="inicio.html" class="navbar__link"><i data-feather="Inicio"></i><span>Home</span> </a>
+            </li>
+            <li class="navbar__item">
+              <a href="bigdata.html" class="navbar__link"><i data-feather="Big data"></i><span>Players data</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="miequipo.html" class="navbar__link"><i data-feather="Mi equipo"></i><span>Lineup builder</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="myplayers.html" class="navbar__link"><i data-feather="My Players"></i><span>My players</span></a>        
+            </li>
+            <li class="navbar__item">
+              <a href="mybuilder.html" class="navbar__link"><i data-feather="Mi equipo"></i><span>My builder</span></a>        
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- partial -->
+        <script src='https://unpkg.com/feather-icons'></script><script  src="./script.js"></script>
+      
+
+    <!-- Contenido de la pï¿½gina -->
+    
+<html>
+<head>
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+
+</head>
+
+<div style="margin-top: 1%; margin-left: 2%; text-align: left; margin-bottom: 1%;">
+  <label for="formacion" style="color: white; display: block; margin-bottom: 5px;">Select a competition:</label>
+  
+  <div style=" align-items: center; width: 439px;">
+    <select class="select" id="formacion" onchange="mostrarFormacion()">
+      <option class="option" value="5-0-1">Limited Contender</option>
+      <option class="option" value="5-0-0">Limited Champion</option>
+      <option class="option" value="5-5-0">Champion & Contender</option>
+      <option class="option" value="5-0-2">Optimal Contender</option>
+      <option class="option" value="5-0-3">Optimal Champion</option>
+      <option class="option" value="5-5-1">Optimal Champion & Contender</option>
+    </select>
+
+  </div>
+</div>
+
+<div id="dynamicH1" style="position: relative;">
+  <h1 style="text-align: center; font-size: x-large; color: white; display: none;">Limited Contender</h1>
+</div>
+
+
+  
+
+
+  <div class="field" id="field">
+  <div style="display: none; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+    <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+        <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal"> 0 €</div></span>
+            <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                <div style="color: white" id="divCapTotal"> 0 pts</div>
+            </span>
+
+            <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                <div style="color: white" id="divSubidaTotal"> 0 pts</div>
+            </span>
+        </span>
+   </div>
+
+  </div>
+
+  <div id="seconddynamicH1" style="position: relative;">
+  </div>
+
+  <div class="field2" style="display: inline-flex;" id="field2">
+    <div id="secondRecount">
+      <div style="display: none; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+        <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+          <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal2"> 0 €</div></span>
+            <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                <div style="color: white" id="divCapTotal2"> 0 pts</div>
+            </span>
+  
+        <span class="filter-indicator" style="display: flex; flex-direction: row;">
+            <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+            <div style="color: white" id="divSubidaTotal2"> 0 pts</div>
+            </span>
+          </span>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+
+    const jugadores = {{ jugadoresL | tojson | safe }}; // Reemplaza por la lógica de Flask para obtener los jugadores
+    var valorTotal = 0.00;
+    var subidaTotal = 0;
+    var capTotal = 0;
+
+    function mostrarInfo(carta, marcoCarta) {
+        const numeroCarta = carta.textContent;
+        alert("Información adicional para la carta " + numeroCarta);
+      }
+
+    function mostrarFormacion() {
+      var valorTotal = 0.00;
+      var subidaTotal = 0;
+      var capTotal = 0;
+      const formacionSeleccionada = document.getElementById("formacion").value;
+      const divValor = document.querySelector("#divValorTotal");
+      const divSubida = document.querySelector("#divSubidaTotal");
+      const divCap = document.querySelector("#divCapTotal");
+      divValor.textContent = 0 + " €";
+      divSubida.textContent = 0 + " pts";
+      divCap.textContent = 0 + " pts";
+
+      // Obtener el elemento select y el div del h1 dinámico
+      const selectElement = document.getElementById("formacion");
+      const dynamicH1 = document.getElementById("dynamicH1");
+      const seconddynamicH1 = document.getElementById("seconddynamicH1");
+
+      // Obtener el valor seleccionado
+      const selectedOption = selectElement.options[selectElement.selectedIndex].text;
+
+      // Actualizar el contenido del h1 dinámico con el valor seleccionado
+      
+      dynamicH1.innerHTML = `<h1 style="text-align: center; font-size: x-large; color: white">${selectedOption}</h1>`;
+
+      if (formacionSeleccionada === "5-5-1" || formacionSeleccionada === "5-5-0"){
+        const secondRecountDiv = document.getElementById("secondRecount")
+        const field2 = document.getElementById("field2")
+        field2.style.display = "";
+        secondRecountDiv.style.display = "";
+
+        dynamicH1.innerHTML = `<h1 style="text-align: center; font-size: x-large; color: white">Limited Contender</h1>`;
+        seconddynamicH1.innerHTML = `<h1 style="text-align: center; font-size: x-large; color: white">Limited Champion</h1>`;
+
+        secondRecountDiv.innerHTML = `
+          <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+            <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+              <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal2"> 0 €</div></span>
+                <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                    <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                    <div style="color: white" id="divCapTotal2"> 0 pts</div>
+                </span>
+
+            <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                <div style="color: white" id="divSubidaTotal2"> 0 pts</div>
+                </span>
+              </span>
+            </div>
+        `;
+
+        const divValor2 = document.querySelector("#divValorTotal2");
+        const divSubida2 = document.querySelector("#divSubidaTotal2");
+        const divCap2 = document.querySelector("#divCapTotal2");
+
+        divValor2.textContent = 0 + " €";
+        divSubida2.textContent = 0 + " pts";
+        divCap2.textContent = 0 + " pts";
+      }
+      else {
+        const secondRecountDiv = document.getElementById("secondRecount")
+        secondRecountDiv.style.display = "";
+        const field2 = document.getElementById("secondRecount")
+        field2.style.display = "none";
+        seconddynamicH1.innerHTML = ``;
+      }
+
+      if (formacionSeleccionada === "5-0-2" || formacionSeleccionada === "5-0-3" || formacionSeleccionada === "5-5-1") {
+
+        const field = document.getElementById("field");
+        field.style.display = "";
+        if (formacionSeleccionada === "5-5-1") {
+          field.style.display = "inline-block";
+          field.style.marginBottom = "1%";
+        }
+        field.innerHTML = `
+          <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+          <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+              <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal">${valorTotal}  €</div></span>
+                  <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                      <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                      <div style="color: white" id="divCapTotal"> ${capTotal} pts</div>
+                  </span>
+
+                  <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                      <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                      <div style="color: white" id="divSubidaTotal"> ${subidaTotal} pts</div>
+                  </span>
+              </span>
+        </div>
+          `;
+        if(formacionSeleccionada !== "5-5-0") {
+          field2.innerHTML = `
+          <div id="secondRecount">
+            <div style="display: none; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+              <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+                <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal2"> 0 €</div></span>
+                  <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                      <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                      <div style="color: white" id="divCapTotal2"> 0 pts</div>
+                  </span>
+        
+              <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                  <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                  <div style="color: white" id="divSubidaTotal2"> 0 pts</div>
+                  </span>
+                </span>
+              </div>
+          </div>`;
+        }
+        var jugadoresContenderjson = null;
+        var jugadoresChampionjson = null;
+        var jugadoresContenderjsonraw = null;
+        var jugadoresChampionjsonraw = null;
+
+        var jugadoresContender = [];
+        var jugadoresChampion = [];
+        
+        if (formacionSeleccionada === "5-0-2") {
+          jugadoresContenderjson = {{ resultadoContender | tojson | safe }};
+        }
+        else if (formacionSeleccionada === "5-0-3") {
+          jugadoresContenderjson = {{ resultadoChampion | tojson | safe }};
+        }
+        else if (formacionSeleccionada === "5-5-1") {
+          jugadoresContenderjsonraw = {{ resultadoCombined | tojson | safe }};
+          jugadoresChampionjsonraw = {{ resultadoCombined| tojson | safe }};
+
+          jugadoresContenderjson = jugadoresContenderjsonraw.optimalContender;
+          jugadoresChampionjson = jugadoresChampionjsonraw.optimalChampion;
+
+
+          jugadoresChampionjson.forEach((jugadorObj) => {
+            jugadoresChampion.push(jugadorObj)
+          });
+        }
+        
+        
+
+        
+        jugadoresContenderjson.forEach((jugadorObj) => {
+            jugadoresContender.push(jugadorObj)
+          });
+
+        console.log("Resultado:");
+        console.log(jugadoresContender);
+
+
+
+        const marcoCartas= document.createElement("div");
+        marcoCartas.style.display = "flex";
+        marcoCartas.className="marcoCartas";
+        for (let j = 0; j < jugadoresContender.length; j++) {
+              const carta = document.createElement("div");
+              carta.className = "cardFormacion";
+              carta.style = "color: white; box-shadow: rgb(255 235 0 / 57%) 0px 5px 12px 1px";
+              carta.setAttribute("mod", "false");
+
+
+              // Agregar el selector de jugadores específico para esta carta
+              
+              const dorsalNombre = document.createElement("div");
+              dorsalNombre.className = "dorsalNombre";
+              dorsalNombre.style = "position: relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 31%; font-weight: bold;";
+              dorsalNombre.textContent = jugadoresContender[j].name;
+
+              const topCard = document.createElement("div");
+              topCard.style.display = "flex";
+
+
+              const infoB = document.createElement("div");
+              infoB.innerHTML = `
+              <button  class="infoButton" style="left: 59%;   border-radius: 0px 45px 0px 14px; padding: 16px 20.5px;" onclick="darVueltaCard(this.closest('.cardFormacion'))">
+              <span style="display: inline-block; vertical-align: middle; position: relative; right: 13px;">Info</span>
+              </button>          
+              `;
+              
+              topCard.appendChild(dorsalNombre);
+              topCard.appendChild(infoB);
+
+              const jugadorSelector = document.createElement("div");
+              jugadorSelector.className = "jugadorSelector";
+              jugadorSelector.style.display = "none";
+
+              const fronte = document.createElement("div");
+              const backe = document.createElement("div");
+
+              fronte.className ="front bg-red-box";
+              fronte.style.boxShadow = "rgba(255, 251, 0, 0.74) 0px 0px 10px";
+
+
+              var floorJ = jugadoresContender[j].floorPrice;
+              var capJ = jugadoresContender[j].actualCap;
+              var projJ = jugadoresContender[j].projectionScore;
+
+              valorTotal += floorJ;
+              capTotal += capJ;
+              subidaTotal += projJ;
+
+              field.innerHTML = `
+                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+                <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+                    <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal">${valorTotal.toFixed(2)}  €</div></span>
+                        <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                            <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                            <div style="color: white" id="divCapTotal"> ${capTotal} pts</div>
+                        </span>
+
+                        <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                            <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                            <div style="color: white" id="divSubidaTotal"> ${subidaTotal} pts</div>
+                        </span>
+                    </span>
+              </div>
+          `;
+
+              backe.className ="back";
+              backe.innerHTML = `
+              <div style="text-align: center; margin-top: 34%;">
+                <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; ">Price:&nbsp;</p>
+                <div style="color: white; position: relative; margin-left: 3px;" class="cardValor">${floorJ} €</div>
+              </span>
+
+              <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; " >Cap:&nbsp;</p>
+                <div style="color: white; position: relative; margin-left: 3px;" class="cardCap">${capJ} pts</div>
+              </span>
+
+              <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; ">Proj:&nbsp;</p>
+                <div style="color: white; position: relative; margin-left: 3px;" class="cardSubida">${projJ} pts</div>
+              </span>
+
+              <button class="verJugador" style="width: 81%; margin-left: 10%; margin-top: 16px;" onclick="darVueltaCard2(this.closest('.cardFormacion'))">Back</button>
+              </div>
+              `;
+
+              const nGamesDiv = document.createElement("div");
+              nGamesDiv.style="position: relative;     position: relative; right: 16px; top: 11px;";
+              nGamesDiv.className="nGamesIcon";
+
+              nGamesDiv.innerHTML = `  
+              <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+              `;
+
+              if (jugadoresContender[j].gamesOnNextGW == 1){
+                nGamesDiv.innerHTML = `  
+              <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+              `;
+              }
+              else if(jugadoresContender[j].gamesOnNextGW == 2){
+                nGamesDiv.innerHTML = `  
+                <svg fill="#0fbd12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#0fbd12" stroke-width="0.00512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M176,209.75c2.531-24.406,10.969-44.141,25.375-59.219c14.344-15.031,34-22.531,58.859-22.531 c12.234,0,23.172,2.141,32.594,6.484c9.422,4.297,17.375,10.141,23.719,17.484c6.328,7.281,11.219,15.547,14.516,24.797 c3.281,9.266,4.938,18.844,4.938,28.703c0,8.625-0.984,16.391-3.062,23.266c-2.094,6.875-4.953,12.984-8.688,18.297 c-3.75,5.438-8.031,10.375-13.109,15c-4.922,4.688-10.328,9.078-16.188,13.234c-10.844,8.406-22.125,16.453-33.672,24.203 c-11.594,7.75-22.719,16.531-33.375,26.328c-3.875,3.672-7.062,7.438-9.594,11.453c-2.5,4.016-4.594,9.031-6.266,15.016h117.375 V384H178.531v-24.203c0-10.047,3.188-20,9.625-29.578c6.438-9.734,14.438-19.188,24.125-28.219 c9.625-9.031,20.188-17.828,31.781-26.359c11.609-8.516,22.531-16.766,32.891-24.781c7.844-5.984,14.031-12.359,18.672-19.234 c4.516-6.859,6.859-15.625,6.859-26.344c0-15.172-3.812-27.031-11.734-35.531c-7.781-8.484-17.938-12.734-30.516-12.734 c-15.359,0-27.531,4.703-36.453,14.109c-9,9.375-13.438,22.25-13.438,38.625H176z"></path> </g> </g></svg>
+                `;
+              }
+              else if(jugadoresContender[j].gamesOnNextGW == 3){
+                nGamesDiv.innerHTML = `  
+                <svg fill="#00b3ff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#00b3ff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M182.828,204.781c2.688-24.062,9.672-42.922,20.938-56.5C215.031,134.766,232.812,128,257.25,128 c21.156,0,37.938,5.969,50.25,17.875s18.469,27.75,18.469,47.469c0,14.125-2.562,25.375-7.781,33.781 c-5.234,8.375-13.453,14.906-24.781,19.625c5.422,1.75,10.641,4.25,15.688,7.5c5.188,3.25,9.734,7.406,13.672,12.594 c4.062,5.156,7.266,11.234,9.734,18.344c2.344,7.047,3.5,15.359,3.5,25.094c0,12.172-2.078,22.688-6.234,31.75 c-4.281,9.188-9.984,16.906-17.078,22.984c-7.234,6.219-15.641,10.938-25.047,14.188c-9.531,3.234-19.672,4.797-30.391,4.797 c-21.969,0-40.156-6.984-54.5-20.984c-14.344-13.984-23.25-34.547-26.75-62h32.562c3.188,20,8.734,34.047,16.5,42.203 c7.75,8.031,18.531,12.062,32.188,12.062c6.156,0,12.094-1.016,17.703-3.047c5.641-2.016,10.516-5.016,14.812-9.016 c4.312-4,7.734-8.734,10.391-14.281c2.5-5.688,3.703-11.906,3.703-18.656c0-13.516-4.125-25.016-12.5-34.438 c-8.25-9.375-19.641-14.094-34.109-14.094h-18.516v-28.719h18.516c6.719,0,12.422-1.062,17.109-3.281 c4.656-2.234,8.484-5.094,11.453-8.625c2.953-3.5,5.031-7.5,6.219-11.875c1.297-4.469,1.797-8.875,1.797-13.25 c0-12.375-3.406-22.109-10.25-29.156c-6.828-7.078-15.922-10.594-27.188-10.594c-6.953,0-12.797,1.281-17.656,3.984 c-4.812,2.641-8.875,6.156-12.078,10.547c-3.188,4.453-5.719,9.594-7.625,15.484c-1.859,5.875-3.219,12.109-4,18.516H182.828z"></path> </g> </g></svg>
+                `;
+              }
+              else if (jugadoresContender[j].gamesOnNextGW == 0) {
+                nGamesDiv.innerHTML = `  
+                <svg fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <path d="M255.984,128c-26.516,0-46.453,11.344-59.922,33.891C182.688,184.516,176,215.25,176,254.016 c0,42.938,6.688,75.25,20.062,97.188C209.531,373.016,229.469,384,255.984,384c26.531,0,46.562-10.984,59.922-32.797 C329.297,329.266,336,296.953,336,254.016C336,170,309.266,128,255.984,128z M292.219,330.719 c-7.453,16.484-19.609,24.578-36.234,24.578c-16.688,0-28.703-8.094-36.266-24.578c-7.516-16.484-11.219-42.016-11.219-76.703 c0-34.391,3.703-59.156,11.219-74.484c7.562-15.266,19.578-22.906,36.266-22.906c16.625,0,28.781,7.641,36.234,22.906 c7.547,15.328,11.281,40.094,11.281,74.484C303.5,288.703,299.766,314.234,292.219,330.719z"></path> </g> </g></svg>
+                `;
+              }
+              else {
+                nGamesDiv.innerHTML = `4+
+                `;
+              }
+
+              var imageSrc = jugadoresContender[j].avatarUrl;
+              jugadorSelector.innerHTML = `
+              <a class="linkeo">
+              <img class="imagenJugador" src="${imageSrc}" alt="Imagen del jugador" style=" width: 165px; margin-left: 24px;">
+              </a>
+              <i id="iconStatus" class="fa-sharp fa-solid fa-circle-check"></i>
+              `;
+
+              jugadorSelector.appendChild(nGamesDiv);
+
+              const okIcon = jugadorSelector.querySelector(".fa-circle-check");
+              okIcon.setAttribute("state", "ok");
+              okIcon.style.color="green";
+              // Obtener la referencia al elemento <img>
+              fronte.appendChild(topCard);
+              fronte.appendChild(jugadorSelector);
+
+              // Mostrar el selector de jugadores para esta carta
+              jugadorSelector.style.display = "flex";
+              const linkeo = jugadorSelector.querySelector(".linkeo")
+              linkeo.href = "/" + jugadoresContender[j].name;
+
+              const verMetricasBtn = fronte.querySelector(".infoButton");
+              const verPrediccionBtn = backe.querySelector(".verJugador");
+              const front = carta.querySelector('.front');
+
+
+              verMetricasBtn.addEventListener('click', () => {
+                carta.classList.add('active');
+                backe.style.backfaceVisibility="visible";
+                const imag = fronte.querySelector(".imagenJugador");
+                imag.style.display = "none";
+              });
+
+              verPrediccionBtn.addEventListener('click', () => {
+                carta.classList.remove('active');
+                backe.style.backfaceVisibility="hidden";
+                const imag = fronte.querySelector(".imagenJugador");
+                imag.style.display = "";
+              });
+
+              
+              carta.appendChild(fronte);
+              carta.appendChild(backe);
+
+              const marcoCarta = document.createElement("div");
+              marcoCarta.className = "marcoCarta";
+              // Crear el div "lowCard"
+              const lowCard = document.createElement("div");
+              lowCard.id = "lowCard";
+              lowCard.style.marginTop="2%";
+
+              // Crear los divs "roundCap" y "roundProj"
+              const roundCap = document.createElement("span");
+              roundCap.id = "roundCap";
+              roundCap.style.color = "white";
+              roundCap.style.marginRight = "0.5%";
+              roundCap.className = "filter-indicatorL";
+              roundCap.innerHTML = "Cap: " + capJ;
+
+              const roundProj = document.createElement("span");
+              roundProj.id = "roundProj";
+              roundProj.style.color = "white";
+              roundProj.className = "filter-indicatorI";
+              roundProj.innerHTML = "Proj: " + projJ;
+
+              // Agregar los divs "roundCap" y "roundProj" a "lowCard"
+              lowCard.appendChild(roundCap);
+              lowCard.appendChild(roundProj);
+
+              // Agregar "lowCard" a la estructura de la carta
+              marcoCarta.appendChild(carta);
+              marcoCarta.appendChild(lowCard);
+              
+              marcoCarta.appendChild(carta);
+              marcoCarta.appendChild(lowCard);
+
+              marcoCartas.appendChild(marcoCarta);
+
+              
+            }
+            field.appendChild(marcoCartas);
+
+            if (formacionSeleccionada === "5-5-1") {
+              const field2 = document.getElementById("field2");
+              field2.style.display = "";
+              field2.innerHTML = `
+              <div id="secondRecount">
+                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+                  <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+                    <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal2"> 0 €</div></span>
+                      <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                          <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                          <div style="color: white" id="divCapTotal2"> 0 pts</div>
+                      </span>
+            
+                  <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                      <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                      <div style="color: white" id="divSubidaTotal2"> 0 pts</div>
+                      </span>
+                    </span>
+                  </div>
+              </div>`;
+
+              const marcoCartas2= document.createElement("div");
+              marcoCartas2.style.display = "flex";
+              marcoCartas2.className="marcoCartas2";
+              for (let j = 0; j < jugadoresChampion.length; j++) {
+                const carta = document.createElement("div");
+                carta.className = "cardFormacion";
+                carta.style = "color: white; box-shadow: rgb(255 235 0 / 57%) 0px 5px 12px 1px";
+                carta.setAttribute("mod", "false");
+
+
+                // Agregar el selector de jugadores específico para esta carta
+                
+                const dorsalNombre = document.createElement("div");
+                dorsalNombre.className = "dorsalNombre";
+                dorsalNombre.style = "position: relative; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 31%; font-weight: bold;";
+                dorsalNombre.textContent = jugadoresChampion[j].name;
+
+                const topCard = document.createElement("div");
+                topCard.style.display = "flex";
+
+
+                const infoB = document.createElement("div");
+                infoB.innerHTML = `
+                <button  class="infoButton" style="left: 59%;   border-radius: 0px 45px 0px 14px; padding: 16px 20.5px;" onclick="darVueltaCard(this.closest('.cardFormacion'))">
+                <span style="display: inline-block; vertical-align: middle; position: relative; right: 13px;">Info</span>
+                </button>          
+                `;
+                
+                topCard.appendChild(dorsalNombre);
+                topCard.appendChild(infoB);
+
+                const jugadorSelector = document.createElement("div");
+                jugadorSelector.className = "jugadorSelector";
+                jugadorSelector.style.display = "none";
+
+                const fronte = document.createElement("div");
+                const backe = document.createElement("div");
+
+                fronte.className ="front bg-red-box";
+                fronte.style.boxShadow = "rgba(255, 251, 0, 0.74) 0px 0px 10px";
+
+
+                var floorJ2 = jugadoresChampion[j].floorPrice;
+                var capJ2 = jugadoresChampion[j].actualCap;
+                var projJ2 = jugadoresChampion[j].projectionScore;
+
+                valorTotal2 += floorJ2;
+                capTotal2 += capJ2;
+                subidaTotal2 += projJ2;
+
+
+                backe.className ="back";
+                backe.innerHTML = `
+                <div style="text-align: center; margin-top: 34%;">
+                  <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                  <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; ">Price:&nbsp;</p>
+                  <div style="color: white; position: relative; margin-left: 3px;" class="cardValor">${floorJ2} €</div>
+                  </span>
+
+                  <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                    <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; " >Cap:&nbsp;</p>
+                    <div style="color: white; position: relative; margin-left: 3px;" class="cardCap">${capJ2} pts</div>
+                  </span>
+
+                  <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                    <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; ">Proj:&nbsp;</p>
+                    <div style="color: white; position: relative; margin-left: 3px;" class="cardSubida">${projJ2} pts</div>
+                  </span>
+
+                  <button class="verJugador" style="width: 81%; margin-left: 10%; margin-top: 16px;" onclick="darVueltaCard2(this.closest('.cardFormacion'))">Back</button>
+                </div>
+                `;
+
+                const nGamesDiv = document.createElement("div");
+                nGamesDiv.style="position: relative;     position: relative; right: 16px; top: 11px;";
+                nGamesDiv.className="nGamesIcon";
+
+                nGamesDiv.innerHTML = `  
+                <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+                `;
+
+                if (jugadoresChampion[j].gamesOnNextGW == 1){
+                  nGamesDiv.innerHTML = `  
+                <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+                `;
+                }
+                else if(jugadoresChampion[j].gamesOnNextGW == 2){
+                  nGamesDiv.innerHTML = `  
+                  <svg fill="#0fbd12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#0fbd12" stroke-width="0.00512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M176,209.75c2.531-24.406,10.969-44.141,25.375-59.219c14.344-15.031,34-22.531,58.859-22.531 c12.234,0,23.172,2.141,32.594,6.484c9.422,4.297,17.375,10.141,23.719,17.484c6.328,7.281,11.219,15.547,14.516,24.797 c3.281,9.266,4.938,18.844,4.938,28.703c0,8.625-0.984,16.391-3.062,23.266c-2.094,6.875-4.953,12.984-8.688,18.297 c-3.75,5.438-8.031,10.375-13.109,15c-4.922,4.688-10.328,9.078-16.188,13.234c-10.844,8.406-22.125,16.453-33.672,24.203 c-11.594,7.75-22.719,16.531-33.375,26.328c-3.875,3.672-7.062,7.438-9.594,11.453c-2.5,4.016-4.594,9.031-6.266,15.016h117.375 V384H178.531v-24.203c0-10.047,3.188-20,9.625-29.578c6.438-9.734,14.438-19.188,24.125-28.219 c9.625-9.031,20.188-17.828,31.781-26.359c11.609-8.516,22.531-16.766,32.891-24.781c7.844-5.984,14.031-12.359,18.672-19.234 c4.516-6.859,6.859-15.625,6.859-26.344c0-15.172-3.812-27.031-11.734-35.531c-7.781-8.484-17.938-12.734-30.516-12.734 c-15.359,0-27.531,4.703-36.453,14.109c-9,9.375-13.438,22.25-13.438,38.625H176z"></path> </g> </g></svg>
+                  `;
+                }
+                else if(jugadoresChampion[j].gamesOnNextGW == 3){
+                  nGamesDiv.innerHTML = `  
+                  <svg fill="#00b3ff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#00b3ff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M182.828,204.781c2.688-24.062,9.672-42.922,20.938-56.5C215.031,134.766,232.812,128,257.25,128 c21.156,0,37.938,5.969,50.25,17.875s18.469,27.75,18.469,47.469c0,14.125-2.562,25.375-7.781,33.781 c-5.234,8.375-13.453,14.906-24.781,19.625c5.422,1.75,10.641,4.25,15.688,7.5c5.188,3.25,9.734,7.406,13.672,12.594 c4.062,5.156,7.266,11.234,9.734,18.344c2.344,7.047,3.5,15.359,3.5,25.094c0,12.172-2.078,22.688-6.234,31.75 c-4.281,9.188-9.984,16.906-17.078,22.984c-7.234,6.219-15.641,10.938-25.047,14.188c-9.531,3.234-19.672,4.797-30.391,4.797 c-21.969,0-40.156-6.984-54.5-20.984c-14.344-13.984-23.25-34.547-26.75-62h32.562c3.188,20,8.734,34.047,16.5,42.203 c7.75,8.031,18.531,12.062,32.188,12.062c6.156,0,12.094-1.016,17.703-3.047c5.641-2.016,10.516-5.016,14.812-9.016 c4.312-4,7.734-8.734,10.391-14.281c2.5-5.688,3.703-11.906,3.703-18.656c0-13.516-4.125-25.016-12.5-34.438 c-8.25-9.375-19.641-14.094-34.109-14.094h-18.516v-28.719h18.516c6.719,0,12.422-1.062,17.109-3.281 c4.656-2.234,8.484-5.094,11.453-8.625c2.953-3.5,5.031-7.5,6.219-11.875c1.297-4.469,1.797-8.875,1.797-13.25 c0-12.375-3.406-22.109-10.25-29.156c-6.828-7.078-15.922-10.594-27.188-10.594c-6.953,0-12.797,1.281-17.656,3.984 c-4.812,2.641-8.875,6.156-12.078,10.547c-3.188,4.453-5.719,9.594-7.625,15.484c-1.859,5.875-3.219,12.109-4,18.516H182.828z"></path> </g> </g></svg>
+                  `;
+                }
+                else if (jugadoresChampion[j].gamesOnNextGW == 0) {
+                  nGamesDiv.innerHTML = `  
+                  <svg fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <path d="M255.984,128c-26.516,0-46.453,11.344-59.922,33.891C182.688,184.516,176,215.25,176,254.016 c0,42.938,6.688,75.25,20.062,97.188C209.531,373.016,229.469,384,255.984,384c26.531,0,46.562-10.984,59.922-32.797 C329.297,329.266,336,296.953,336,254.016C336,170,309.266,128,255.984,128z M292.219,330.719 c-7.453,16.484-19.609,24.578-36.234,24.578c-16.688,0-28.703-8.094-36.266-24.578c-7.516-16.484-11.219-42.016-11.219-76.703 c0-34.391,3.703-59.156,11.219-74.484c7.562-15.266,19.578-22.906,36.266-22.906c16.625,0,28.781,7.641,36.234,22.906 c7.547,15.328,11.281,40.094,11.281,74.484C303.5,288.703,299.766,314.234,292.219,330.719z"></path> </g> </g></svg>
+                  `;
+                }
+                else {
+                  nGamesDiv.innerHTML = `4+
+                  `;
+                }
+
+                var imageSrc = jugadoresChampion[j].avatarUrl;
+                jugadorSelector.innerHTML = `
+                <a class="linkeo">
+                <img class="imagenJugador" src="${imageSrc}" alt="Imagen del jugador" style=" width: 165px; margin-left: 24px;">
+                </a>
+                <i id="iconStatus" class="fa-sharp fa-solid fa-circle-check"></i>
+                `;
+
+                jugadorSelector.appendChild(nGamesDiv);
+
+                const okIcon = jugadorSelector.querySelector(".fa-circle-check");
+                okIcon.setAttribute("state", "ok");
+                okIcon.style.color="green";
+                // Obtener la referencia al elemento <img>
+                fronte.appendChild(topCard);
+                fronte.appendChild(jugadorSelector);
+
+                // Mostrar el selector de jugadores para esta carta
+                jugadorSelector.style.display = "flex";
+                const linkeo = jugadorSelector.querySelector(".linkeo")
+                linkeo.href = "/" + jugadoresChampion[j].name;
+
+                const verMetricasBtn = fronte.querySelector(".infoButton");
+                const verPrediccionBtn = backe.querySelector(".verJugador");
+                const front = carta.querySelector('.front');
+
+
+                verMetricasBtn.addEventListener('click', () => {
+                  carta.classList.add('active');
+                  backe.style.backfaceVisibility="visible";
+                  const imag = fronte.querySelector(".imagenJugador");
+                  imag.style.display = "none";
+                });
+
+                verPrediccionBtn.addEventListener('click', () => {
+                  carta.classList.remove('active');
+                  backe.style.backfaceVisibility="hidden";
+                  const imag = fronte.querySelector(".imagenJugador");
+                  imag.style.display = "";
+                });
+
+                
+                carta.appendChild(fronte);
+                carta.appendChild(backe);
+
+                const marcoCarta = document.createElement("div");
+                marcoCarta.className = "marcoCarta";
+                // Crear el div "lowCard"
+                const lowCard = document.createElement("div");
+                lowCard.id = "lowCard";
+                lowCard.style.marginTop="2%";
+
+                // Crear los divs "roundCap" y "roundProj"
+                const roundCap = document.createElement("span");
+                roundCap.id = "roundCap";
+                roundCap.style.color = "white";
+                roundCap.style.marginRight = "0.5%";
+                roundCap.className = "filter-indicatorL";
+                roundCap.innerHTML = "Cap: " + capJ2;
+
+                const roundProj = document.createElement("span");
+                roundProj.id = "roundProj";
+                roundProj.style.color = "white";
+                roundProj.className = "filter-indicatorI";
+                roundProj.innerHTML = "Proj: " + projJ2;
+
+                // Agregar los divs "roundCap" y "roundProj" a "lowCard"
+                lowCard.appendChild(roundCap);
+                lowCard.appendChild(roundProj);
+
+                // Agregar "lowCard" a la estructura de la carta
+                marcoCarta.appendChild(carta);
+                marcoCarta.appendChild(lowCard);
+
+                marcoCartas2.appendChild(marcoCarta);
+                
+
+              }
+              field2.appendChild(marcoCartas2);
+          }
+            const allCaps = field.querySelectorAll(".cardCap")
+            var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+            // Encontrar el mayor número usando Math.max
+            var mvpCap = 0;
+            mvpCap = Math.max(...capValues);
+            divValor.textContent = valorTotal.toFixed(2) + " €";
+            divSubida.textContent = subidaTotal + " pts";
+            divCap.textContent = capTotal + " pts";
+
+            if (formacionSeleccionada === "5-5-0" || formacionSeleccionada === "5-5-1") {
+              const divValor2 = document.querySelector("#divValorTotal2");
+              const divSubida2 = document.querySelector("#divSubidaTotal2");
+              const divCap2 = document.querySelector("#divCapTotal2");
+              divValor2.textContent = valorTotal2.toFixed(2) + " €";
+              divSubida2.textContent = subidaTotal2 + " pts";
+              divCap2.textContent = capTotal2 + " pts";
+
+              const allCaps = field2.querySelectorAll(".cardCap");
+              var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+              // Encontrar el mayor número usando Math.max
+              var mvpCap = 0;
+              mvpCap = Math.max(...capValues);
+              console.log("MVP2: " + mvpCap);
+              divValor2.textContent = valorTotal2.toFixed(2) + " €";
+              divSubida2.textContent = subidaTotal2 + " pts";
+              
+              divCap2.textContent = capTotal2 - mvpCap + " pts";
+            }
+
+
+            if (formacionSeleccionada === "5-0-3"){
+              const divValor = document.querySelector("#divValorTotal");
+              const divSubida = document.querySelector("#divSubidaTotal");
+              const divCap = document.querySelector("#divCapTotal");
+              const field = document.getElementById("field");
+              const allCaps = field.querySelectorAll(".cardCap");
+              var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+              // Encontrar el mayor número usando Math.max
+              var mvpCap = 0;
+              mvpCap = Math.max(...capValues);
+              console.log("MVP: " + mvpCap);
+
+              divValor.textContent = valorTotal.toFixed(2) + " €";
+              divSubida.textContent = subidaTotal + " pts";
+              
+              divCap.textContent = capTotal - mvpCap + " pts";
+              console.log(capValues);
+            }
+      }
+      else{
+        const field = document.getElementById("field");
+        field.style.display = "";
+        const field2 = document.getElementById("field2");
+        field2.style.display = "";
+        if(formacionSeleccionada !== "5-5-1" && formacionSeleccionada !== "5-5-0") {
+          field2.style.display = "none";
+        }
+
+        
+        const valorTotal2 = 0.00;
+        const subidaTotal2 = 0;
+        const capTotal2 = 0;
+
+        // Limpia el campo antes de mostrar la nueva formación
+        field.innerHTML = `
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+          <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+              <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal"> 0 €</div></span>
+                  <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                      <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                      <div style="color: white" id="divCapTotal"> 0 pts</div>
+                  </span>
+
+                  <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                      <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                      <div style="color: white" id="divSubidaTotal"> 0 pts</div>
+                  </span>
+              </span>
+        </div>`;
+        field2.innerHTML = `
+        <div id="secondRecount">
+          <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom: 1%; position: relative; z-index: 99;">
+            <span style="margin-top: 20px; display: contents; position: relative; z-index: 99;">
+              <span class="filter-indicator" style="  display: flex; flex-direction: row;"> <p style="color: #e74c3c;   font-size: 18px; font-weight: bold;">Total Price:&nbsp;</p> <div style="color: white" id="divValorTotal2"> 0 €</div></span>
+                <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                    <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Cap:&nbsp;</p>
+                    <div style="color: white" id="divCapTotal2"> 0 pts</div>
+                </span>
+      
+            <span class="filter-indicator" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold;">Total Proj:&nbsp;</p>
+                <div style="color: white" id="divSubidaTotal2"> 0 pts</div>
+                </span>
+              </span>
+            </div>
+        </div>
+        `;
+
+        // Define el número de jugadores por fila según la formación
+        let jugadoresPorFila;
+        if (formacionSeleccionada === "5-5-0") {
+          jugadoresPorFila = [5, 5];
+        }else {
+          jugadoresPorFila = [5, 0];
+        }
+
+        // Agrega las cartas al campo según la formación seleccionada
+        let cartaCount = 0;
+        let cartaCount2 = 0;
+        const marcoCartas = [];
+        for (let i = 0; i < jugadoresPorFila.length; i++) {
+          marcoCartas[i] = document.createElement("div");
+          marcoCartas[i].style.display="inline-flex";
+          marcoCartas[i].style.marginBottom="2%";
+          for (let j = 0; j < jugadoresPorFila[i]; j++) {
+            const carta = document.createElement("div");
+            carta.className = "cardFormacion";
+            carta.style = "color:white;";
+            cartaCount++;
+            carta.setAttribute("mod", "false");
+
+
+            // Agregar el selector de jugadores específico para esta carta
+            
+            const dorsalNombre = document.createElement("div");
+            dorsalNombre.className = "dorsalNombre";
+            dorsalNombre.textContent = cartaCount;
+            dorsalNombre.style = "white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: bold; margin-top: -37px; margin-bottom: 61px;";
+
+            const topCard = document.createElement("div");
+            topCard.style.display = "flex";
+
+
+            const infoB = document.createElement("div");
+            infoB.innerHTML = `
+            <button  class="infoButton" style="display: none;" onclick="darVueltaCard(this.closest('.cardFormacion'))">
+            <span style="display: inline-block; vertical-align: middle; padding-right: 18px; white-space: nowrap; position: relative; right: 13px;">Info</span>
+            </button>          
+            `;
+
+            const borraB = document.createElement("div");
+            borraB.innerHTML = `
+            <button class="cambioButton" style="display: none; border-radius: 45px 0px 14px; margin-right: 28%; margin-bottom: 22%;" onclick="mostrarSelectorJugador(this.closest('.cardFormacion'), this.closest('.marcoCarta'))">
+              <i id="iconStatus" style="position: relative; left: 11%;" class="fa fa-trash"></i>
+              </button>
+            `;
+
+            const iconStane = document.createElement("div");
+            iconStane.style ="margin-bottom: 16px; display: inline-flex;";
+            iconStane.innerHTML =  `
+            <i style=" display: none; position: relative;" class="fa-sharp fa-solid fa-circle-check"></i>
+            `;
+
+            const nGamesDiv = document.createElement("div");
+            nGamesDiv.style="display: none; text-align: center; position: relative; top: -13.5px; bottom: 14px; margin-left: 17px;";
+            nGamesDiv.className="nGamesIcon";
+            nGamesDiv.innerHTML = `  
+              <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+              `;
+            iconStane.appendChild(nGamesDiv);
+
+            const midTop = document.createElement("div");
+            midTop.style = "position: relative; margin-top: -94px;"
+            midTop.appendChild(iconStane);
+            midTop.appendChild(dorsalNombre)
+
+            topCard.appendChild(borraB);
+            topCard.appendChild(midTop);
+            topCard.appendChild(infoB);
+
+            const jugadorSelector = document.createElement("div");
+            jugadorSelector.className = "jugadorSelector";
+            jugadorSelector.style.display = "none";
+
+            const fronte = document.createElement("div");
+            const backe = document.createElement("div");
+
+            fronte.className ="front bg-red-box";
+
+            backe.className ="back";
+            backe.innerHTML = `
+            <div style="text-align: center; margin-top: 34%;">
+                <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; ">Price:&nbsp;</p>
+                <div style="color: white; position: relative; margin-left: 3px;" class="cardValor">0.00 €</div>
+              </span>
+
+              <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; " >Cap:&nbsp;</p>
+                <div style="color: white; position: relative; margin-left: 3px;" class="cardCap">0 pts</div>
+              </span>
+
+              <span class="filter-indicatorCard" style="display: flex; flex-direction: row;">
+                <p style="color: #e74c3c; font-size: 18px; font-weight: bold; position: relative; ">Proj:&nbsp;</p>
+                <div style="color: white; position: relative; margin-left: 3px;" class="cardSubida">0 pts</div>
+              </span>
+
+              <button class="verJugador" style="width: 81%; margin-left: 10%; margin-top: 16px;" onclick="darVueltaCard2(this.closest('.cardFormacion'))">Back</button>
+              </div>
+            
+            `;
+
+
+            jugadorSelector.innerHTML = `
+            <input class="jugadores" style="width: 100%" list="datalist" >
+            <datalist id="datalist"></datalist>
+            <a class="linkeo">
+            <img class="imagenJugador" src="" alt="Imagen del jugador" style="width: 165px; margin-top: -70px; position: absolute; margin-left: -81px;">
+            </a>
+            `;
+
+
+            // Obtener la referencia al elemento <img>
+            fronte.appendChild(topCard);
+            fronte.appendChild(jugadorSelector);
+
+            const okIcon = fronte.querySelector(".fa-circle-check");
+            okIcon.setAttribute("state", "ok");
+
+            const datalistJugadores = jugadorSelector.querySelector("#datalist");
+                // Llenar dinámicamente las opciones del selector de jugadores específico para esta carta
+            const inputJugador = jugadorSelector.querySelector(".jugadores");
+            inputJugador.value = "";  // Limpiar el valor del input
+
+            // Mostrar el selector de jugadores para esta carta
+            jugadorSelector.style.display = "flex";
+            inputJugador.style.display = "block";
+
+            const verMetricasBtn = fronte.querySelector(".infoButton");
+            const verPrediccionBtn = backe.querySelector(".verJugador");
+            const front = carta.querySelector('.front');
+
+
+            verMetricasBtn.addEventListener('click', () => {
+              carta.classList.add('active');
+              backe.style.backfaceVisibility="visible";
+              const imag = fronte.querySelector(".imagenJugador");
+              imag.style.display = "none";
+            });
+
+            verPrediccionBtn.addEventListener('click', () => {
+              carta.classList.remove('active');
+              backe.style.backfaceVisibility="hidden";
+              const imag = fronte.querySelector(".imagenJugador");
+              imag.style.display = "";
+            });
+
+            
+            carta.appendChild(fronte);
+            carta.appendChild(backe);
+
+            var floorJ = 0;
+            var capJ = 0;
+            var projJ = 0;
+
+
+            // Crear el div "lowCard"
+            const lowCard = document.createElement("div");
+            lowCard.id = "lowCard";
+            lowCard.style.marginTop="2%";
+
+            // Crear los divs "roundCap" y "roundProj"
+            const roundCap = document.createElement("span");
+            roundCap.style.color = "white";
+            roundCap.style.marginRight = "0.5%";
+            roundCap.classList.add("filter-indicatorL", "roundCap");
+            roundCap.innerHTML = "Cap: " + capJ;
+            roundCap.style.display="none";
+
+            const roundProj = document.createElement("span");
+            roundProj.style.color = "white";
+            roundProj.classList.add("filter-indicatorI", "roundProj");
+            roundProj.innerHTML = "Proj: " + projJ;
+            roundProj.style.display="none";
+
+            // Agregar los divs "roundCap" y "roundProj" a "lowCard"
+            lowCard.appendChild(roundCap);
+            lowCard.appendChild(roundProj);
+
+
+
+            const marcoCarta = document.createElement("div");
+            marcoCarta.className = "marcoCarta";
+            // Agregar un event listener al input para detectar cambios
+            inputJugador.addEventListener("input", function (event) {
+              mostrarImagen(carta ,  marcoCarta);
+            });
+
+          // Agregar un event listener al input para borrar el contenido al perder el foco
+            inputJugador.addEventListener("blur", function () {
+              inputJugador.value = ""; // Borrar el contenido del input al perder el foco
+            });
+
+          // Agregar un event listener al input para detener la propagación de clics
+          inputJugador.addEventListener("click", function (event) {
+            event.stopPropagation();
+            });
+            jugadores.forEach((jugadorObj) => {
+              const jugador = jugadorObj.jugador;
+              const opcion = document.createElement("option");
+
+              // Asignar el nombre del jugador como etiqueta
+              opcion.label = jugador.name;
+
+              // Asignar el ID del jugador como atributo de datos personalizado
+              opcion.value = jugador.name;
+              opcion.text = jugador.name;
+
+              // Agregar la opción al datalist
+              datalistJugadores.appendChild(opcion);
+          });
+            
+            // Agregar "lowCard" a la estructura de la carta
+            
+            marcoCarta.appendChild(carta);
+            marcoCarta.appendChild(lowCard);
+
+            marcoCartas[i].appendChild(marcoCarta);
+
+            if(i == 0) {
+              field.appendChild(marcoCartas[i]);
+            }
+            else {
+              field2.appendChild(marcoCartas[i]);
+            }
+            mostrarSelectorJugador(carta, marcoCarta);
+
+            
+          }
+        }
+
+      }
+
+
+
+      
+      // Añade una pequeña demora antes de aplicar la nueva posición para permitir la animación
+      setTimeout(() => {
+        mezclarCartas(); // Llamada a la función para mezclar las cartas
+      }, 50);
+    }
+
+    // Función para mezclar las cartas hacia el centro de la pantalla
+    function mezclarCartas() {
+      const cards = document.querySelectorAll(".cardFormacion");
+      const container = document.getElementById("field");
+      const centerX = container.clientWidth / 2;
+      const centerY = container.clientHeight / 2;
+
+      const roundProjs = document.querySelectorAll(".roundProj");
+      const roundCaps = document.querySelectorAll(".roundCap");
+      roundProjs.forEach(roundProj => {
+        roundProj.style.display = "none";
+      });
+
+      roundCaps.forEach(roundCap => {
+        roundCap.style.display = "none  ";
+      });
+
+      valorTotal = 0.00;
+      subidaTotal = 0;
+      capTotal = 0;
+
+      valorTotal2 = 0.00;
+      subidaTotal2 = 0;
+      capTotal2 = 0;
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const cardX = rect.left + rect.width / 2;
+        const cardY = rect.top + rect.height / 2;
+
+        var offsetX = centerX - cardX;
+        var offsetY = centerY - cardY;
+
+      const formacionSeleccionada = document.getElementById("formacion").value;
+      if (formacionSeleccionada === "5-5-0" || formacionSeleccionada === "5-5-1") {
+        offsetY = offsetY + 350;
+        offsetX = offsetX + 515;
+      }
+      else {
+        offsetY = offsetY + 280;
+      }
+
+        card.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+
+      // Añade una pequeña demora antes de resetear las posiciones
+      setTimeout(() => {
+        resetearPosiciones(); // Llamada a la función para resetear las posiciones
+      }, 500);
+
+            // Añade una pequeña demora antes de resetear las posiciones
+        setTimeout(() => {
+        reseteoTransform();
+      }, 500);
+    }
+
+    // Función para resetear las posiciones
+function reseteoTransform() {
+  const cards = document.querySelectorAll(".cardFormacion");
+  cards.forEach((card) => {
+    card.style.removeProperty("transform");
+  });
+}
+
+
+    // Función para resetear las posiciones
+    function resetearPosiciones() {
+      const cards = document.querySelectorAll(".cardFormacion");
+      cards.forEach((card) => {
+        card.style.transform = "translate(0, 0)";
+      });
+    }
+
+    function darVueltaCard(carta) {
+      carta.classList.add('active');
+      const iconSate = carta.querySelector("i[state]");
+      const iconGame = carta.querySelector(".nGamesIcon");
+      iconSate.style.display = "none";
+      iconGame.style.display = "none";
+
+    }
+    function darVueltaCard2(carta) {
+    carta.classList.remove('active');
+    const iconSate = carta.querySelector("i[state]");
+    const iconGame = carta.querySelector(".nGamesIcon");
+    iconGame.style.display = "";
+    iconSate.style.display = "";
+
+
+  }
+    function mostrarSelectorJugador(carta, marcoCarta) {
+    // Obtener el div del selector de jugadores específico para esta carta
+    const jugadorSelector = carta.querySelector(".jugadorSelector");
+    const botonInfo = carta.querySelector(".infoButton");
+    const botonCambio = carta.querySelector(".cambioButton");
+    const infoDorsal = carta.querySelector(".dorsalNombre");
+    const imagenJugador = carta.querySelector(".imagenJugador");
+    const inputJugador = jugadorSelector.querySelector(".jugadores");
+    const fronte = carta.querySelector(".front");
+    const iconSate = carta.querySelector("i[state]");
+    const iconGame = carta.querySelector(".nGamesIcon");
+
+    const roundCap = marcoCarta.querySelector(".roundCap");
+    const roundProj = marcoCarta.querySelector(".roundProj");
+
+    const field = document.getElementById("field");
+    const field2 = document.getElementById("field2");
+
+    if (field.contains(carta)) {
+
+      inputJugador.style.display="block";
+    
+      if(carta.getAttribute("mod") === "true"){
+      const cardValor = carta.querySelector(".cardValor");
+      const cardSubida = carta.querySelector(".cardSubida");
+      const cardCap = carta.querySelector(".cardCap");
+
+      const divValor = document.querySelector("#divValorTotal");
+      const divSubida = document.querySelector("#divSubidaTotal");
+      const divCap = document.querySelector("#divCapTotal");
+
+      var valorPre = parseFloat(cardValor.getAttribute("valor"));
+      var subidaPre = parseInt(cardSubida.getAttribute("subida"));
+      var capPre = parseInt(cardCap.getAttribute("cap"));
+
+      roundProj.style.display = "none";
+
+      roundCap.style.display = "none";
+
+      roundCap.innerHTML = "Cap: " + 0;
+      roundProj.innerHTML = "Proj: " + 0;
+
+      valorTotal = parseFloat((valorTotal - valorPre).toFixed(2));
+      subidaTotal = subidaTotal - subidaPre;
+      capTotal = capTotal - capPre;
+
+      var valorFin = valorTotal;
+      var subidaFin = subidaTotal;
+      var capFin = capTotal;
+
+      divValor.textContent = valorFin + " €";
+      divSubida.textContent = subidaFin + " pts";
+      divCap.textContent = capFin + " pts";
+
+      cardValor.setAttribute("valor", 0.00);
+      cardSubida.setAttribute("subida", 0);
+      cardCap.setAttribute("cap", 0);
+
+      cardValor.textContent = "0 €";
+      cardSubida.textContent = "0 pts";
+      cardCap.textContent = "0 pts";
+      
+      valorPre = 0;
+      subidaPre = 0;
+      capPre = 0;
+
+      }
+      carta.setAttribute("mod", "true");
+
+      const formacionSeleccionada = document.getElementById("formacion").value;
+      if (formacionSeleccionada === "5-0-0"){
+        const divValor = document.querySelector("#divValorTotal");
+        const divSubida = document.querySelector("#divSubidaTotal");
+        const divCap = document.querySelector("#divCapTotal");
+        const allCaps = field.querySelectorAll(".cardCap");
+
+        var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+        // Encontrar el mayor número usando Math.max
+        var mvpCap = 0;
+        mvpCap = Math.max(...capValues);
+        divValor.textContent = valorTotal.toFixed(2) + " €";
+        divSubida.textContent = subidaTotal + " pts";
+        divCap.textContent = capTotal - mvpCap + " pts";
+      }
+      
+      iconSate.style.display = "none";
+      iconGame.style.display = "none";
+      imagenJugador.style.display = "none";
+      infoDorsal.innerHTML = "Empty";
+      botonInfo.style.display = "none";
+      botonCambio.style.display = "none";
+      fronte.style.boxShadow ="";
+      carta.style.boxShadow = "";
+
+    } else if (field2.contains(carta)) {
+
+      inputJugador.style.display="block";
+      
+      if(carta.getAttribute("mod") === "true"){
+        const cardValor = carta.querySelector(".cardValor");
+        const cardSubida = carta.querySelector(".cardSubida");
+        const cardCap = carta.querySelector(".cardCap");
+
+        const divValor2 = document.querySelector("#divValorTotal2");
+        const divSubida2 = document.querySelector("#divSubidaTotal2");
+        const divCap2 = document.querySelector("#divCapTotal2");
+
+
+        var valorPre2 = parseFloat(cardValor.getAttribute("valor"));
+        var subidaPre2 = parseInt(cardSubida.getAttribute("subida"));
+        var capPre2 = parseInt(cardCap.getAttribute("cap"));
+
+        roundProj.style.display = "none";
+
+        roundCap.style.display = "none";
+
+        roundCap.innerHTML = "Cap: " + 0;
+        roundProj.innerHTML = "Proj: " + 0;
+
+        valorTotal2 = parseFloat((valorTotal2 - valorPre2).toFixed(2));
+        subidaTotal2 = subidaTotal2 - subidaPre2;
+        capTotal2 = capTotal2 - capPre2;
+
+
+        var valorFin2 = valorTotal2;
+        var subidaFin2 = subidaTotal2;
+        var capFin2 = capTotal2;
+
+        divValor2.textContent = valorFin2 + " €";
+        divSubida2.textContent = subidaFin2 + " pts";
+        divCap2.textContent = capFin2 + " pts";
+
+        cardValor.setAttribute("valor", 0.00);
+        cardSubida.setAttribute("subida", 0);
+        cardCap.setAttribute("cap", 0);
+
+        cardValor.textContent = "0 €";
+        cardSubida.textContent = "0 pts";
+        cardCap.textContent = "0 pts";
+        
+
+        valorPre2 = 0;
+        subidaPre2 = 0;
+        capPre2 = 0;
+
+        }
+        carta.setAttribute("mod", "true");
+
+        const formacionSeleccionada = document.getElementById("formacion").value;
+
+        if (formacionSeleccionada === "5-5-0") {
+        const divValor2 = document.querySelector("#divValorTotal2");
+        const divSubida2 = document.querySelector("#divSubidaTotal2");
+        const divCap2 = document.querySelector("#divCapTotal2");
+        divValor2.textContent = valorTotal2.toFixed(2) + " €";
+        divSubida2.textContent = subidaTotal2 + " pts";
+        divCap2.textContent = capTotal2 + " pts";
+
+        const allCaps = field2.querySelectorAll(".cardCap");
+        var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+        // Encontrar el mayor número usando Math.max
+        var mvpCap = 0;
+        mvpCap = Math.max(...capValues);
+        console.log("MVP2: " + mvpCap);
+        divValor2.textContent = valorTotal2.toFixed(2) + " €";
+        divSubida2.textContent = subidaTotal2 + " pts";
+        
+        divCap2.textContent = capTotal2 - mvpCap + " pts";
+      }
+
+
+
+        iconSate.style.display = "none";
+        iconGame.style.display = "none";
+        imagenJugador.style.display = "none";
+        infoDorsal.innerHTML = "Empty";
+        botonInfo.style.display = "none";
+        botonCambio.style.display = "none";
+        fronte.style.boxShadow ="";
+        carta.style.boxShadow = "";
+
+    } else {
+    console.error("La carta no está dentro de field ni de field2");
+    }
+
+
+
+
+    
+}
+
+
+function mostrarImagen(carta, marcoCarta) {
+    const selectorJugadores = carta.querySelector(".jugadores");
+    const imagenJugador = carta.querySelector(".imagenJugador");
+    const linkeo = carta.querySelector(".linkeo");
+    const botonInfo = carta.querySelector(".infoButton");
+    const botonCambio = carta.querySelector(".cambioButton");
+    const dorsalNombre = carta.querySelector(".dorsalNombre");
+    const iconSate = carta.querySelector("i[state]");
+    const field = document.getElementById("field");
+    const field2 = document.getElementById("field2");
+
+    const iconGame = carta.querySelector(".nGamesIcon");
+
+
+    const cardValor = carta.querySelector(".cardValor");
+    const cardSubida = carta.querySelector(".cardSubida");
+    const cardCap = carta.querySelector(".cardCap");
+
+    const divValor = document.querySelector("#divValorTotal");
+    const divSubida = document.querySelector("#divSubidaTotal");
+    const divCap = document.querySelector("#divCapTotal");
+
+    const divValor2 = document.querySelector("#divValorTotal2");
+    const divSubida2 = document.querySelector("#divSubidaTotal2");
+    const divCap2 = document.querySelector("#divCapTotal2");
+
+    // Convertir NodeList a Array y obtener los valores numéricos
+
+    const jugadorSeleccionado = selectorJugadores.value;
+
+    const roundCap = marcoCarta.querySelector(".roundCap");
+    const roundProj = marcoCarta.querySelector(".roundProj");
+
+    const fronte = carta.querySelector(".front");
+    fronte.style.boxShadow = "0 0 10px rgba(255, 0, 0, 0.7)";
+    carta.style.boxShadow  = "0 0 10px rgba(255, 0, 0, 0.7)";
+
+    if (field.contains(carta)) {
+          // Obtener la información del jugador desde la lista de jugadores
+    if (jugadores.find((jugadorObj) => jugadorObj.jugador.name == jugadorSeleccionado)){
+      const jugador = jugadores.find((jugadorObj) => jugadorObj.jugador.name == jugadorSeleccionado);
+
+    // Verificar si se encontró el jugador antes de acceder a sus propiedades
+    if (jugador) {
+        imagenJugador.style.display = "none";
+        dorsalNombre.textContent = jugador.jugador.name;
+
+        const cards = document.querySelectorAll(".cardFormacion");
+        const roundProj = marcoCarta.querySelector(".roundProj");
+        const roundCap = marcoCarta.querySelector(".roundCap");
+
+        roundProj.style.display = "";
+
+        roundCap.style.display = "";
+
+        if (jugador.jugador.floorPrice == -1) {
+          cardValor.setAttribute("valor", 0.00);
+          cardValor.textContent = 0.00 + " €";
+          valorTotal += 0;
+        }
+        else {
+          cardValor.setAttribute("valor", jugador.jugador.floorPrice);
+          cardValor.textContent = jugador.jugador.floorPrice + " €";
+          valorTotal += jugador.jugador.floorPrice;
+        }
+        
+        cardSubida.setAttribute("subida", jugador.jugador.projectionScore);
+        cardSubida.textContent = jugador.jugador.projectionScore + " pts";
+        subidaTotal += jugador.jugador.projectionScore;
+
+        cardCap.setAttribute("cap", jugador.jugador.actualCap);
+        cardCap.textContent = jugador.jugador.actualCap + " pts";
+        capTotal += jugador.jugador.actualCap;
+
+        divValor.textContent = valorTotal;
+        divSubida.textContent = subidaTotal;
+        divCap.textContent = capTotal;
+        console.log(valorTotal)
+        divValor.textContent = valorTotal.toFixed(2) + " €";
+        divSubida.textContent = subidaTotal + " pts";
+        divCap.textContent = capTotal + " pts";
+
+
+        roundCap.innerHTML = "Cap: " + jugador.jugador.actualCap;
+        roundProj.innerHTML = "Proj: " + jugador.jugador.projectionScore;
+
+        // Mostrar la imagen del jugador si se encuentra
+        if (jugador.jugador) {
+            imagenJugador.src = jugador.jugador.avatarUrl;
+            linkeo.href = "/" + jugador.jugador.name;
+            imagenJugador.style.display = "";
+            botonInfo.style.display = "block";
+            botonCambio.style.display = "block";
+            if(jugador.jugador.isInjured === "No"){
+              iconSate.className = "fa-sharp fa-solid fa-circle-check";
+              iconSate.style.color = "green";
+            }
+            else if(jugador.jugador.isInjured.startsWith("Out")){
+              iconSate.className = "fa-solid fa-square-xmark";
+              iconSate.style.color = "red";
+            }
+            else {
+              iconSate.className = "fas fa-exclamation-triangle";
+              iconSate.style.color = "orange";
+            }
+
+            if (jugador.jugador.gamesOnNextGW == 1){
+              iconGame.innerHTML = `  
+              <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+              `;
+            }
+            else if(jugador.jugador.gamesOnNextGW == 2){
+              iconGame.innerHTML = `  
+              <svg fill="#0fbd12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#0fbd12" stroke-width="0.00512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M176,209.75c2.531-24.406,10.969-44.141,25.375-59.219c14.344-15.031,34-22.531,58.859-22.531 c12.234,0,23.172,2.141,32.594,6.484c9.422,4.297,17.375,10.141,23.719,17.484c6.328,7.281,11.219,15.547,14.516,24.797 c3.281,9.266,4.938,18.844,4.938,28.703c0,8.625-0.984,16.391-3.062,23.266c-2.094,6.875-4.953,12.984-8.688,18.297 c-3.75,5.438-8.031,10.375-13.109,15c-4.922,4.688-10.328,9.078-16.188,13.234c-10.844,8.406-22.125,16.453-33.672,24.203 c-11.594,7.75-22.719,16.531-33.375,26.328c-3.875,3.672-7.062,7.438-9.594,11.453c-2.5,4.016-4.594,9.031-6.266,15.016h117.375 V384H178.531v-24.203c0-10.047,3.188-20,9.625-29.578c6.438-9.734,14.438-19.188,24.125-28.219 c9.625-9.031,20.188-17.828,31.781-26.359c11.609-8.516,22.531-16.766,32.891-24.781c7.844-5.984,14.031-12.359,18.672-19.234 c4.516-6.859,6.859-15.625,6.859-26.344c0-15.172-3.812-27.031-11.734-35.531c-7.781-8.484-17.938-12.734-30.516-12.734 c-15.359,0-27.531,4.703-36.453,14.109c-9,9.375-13.438,22.25-13.438,38.625H176z"></path> </g> </g></svg>
+              `;
+            }
+            else if(jugador.jugador.gamesOnNextGW == 3){
+              iconGame.innerHTML = `  
+              <svg fill="#00b3ff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#00b3ff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M182.828,204.781c2.688-24.062,9.672-42.922,20.938-56.5C215.031,134.766,232.812,128,257.25,128 c21.156,0,37.938,5.969,50.25,17.875s18.469,27.75,18.469,47.469c0,14.125-2.562,25.375-7.781,33.781 c-5.234,8.375-13.453,14.906-24.781,19.625c5.422,1.75,10.641,4.25,15.688,7.5c5.188,3.25,9.734,7.406,13.672,12.594 c4.062,5.156,7.266,11.234,9.734,18.344c2.344,7.047,3.5,15.359,3.5,25.094c0,12.172-2.078,22.688-6.234,31.75 c-4.281,9.188-9.984,16.906-17.078,22.984c-7.234,6.219-15.641,10.938-25.047,14.188c-9.531,3.234-19.672,4.797-30.391,4.797 c-21.969,0-40.156-6.984-54.5-20.984c-14.344-13.984-23.25-34.547-26.75-62h32.562c3.188,20,8.734,34.047,16.5,42.203 c7.75,8.031,18.531,12.062,32.188,12.062c6.156,0,12.094-1.016,17.703-3.047c5.641-2.016,10.516-5.016,14.812-9.016 c4.312-4,7.734-8.734,10.391-14.281c2.5-5.688,3.703-11.906,3.703-18.656c0-13.516-4.125-25.016-12.5-34.438 c-8.25-9.375-19.641-14.094-34.109-14.094h-18.516v-28.719h18.516c6.719,0,12.422-1.062,17.109-3.281 c4.656-2.234,8.484-5.094,11.453-8.625c2.953-3.5,5.031-7.5,6.219-11.875c1.297-4.469,1.797-8.875,1.797-13.25 c0-12.375-3.406-22.109-10.25-29.156c-6.828-7.078-15.922-10.594-27.188-10.594c-6.953,0-12.797,1.281-17.656,3.984 c-4.812,2.641-8.875,6.156-12.078,10.547c-3.188,4.453-5.719,9.594-7.625,15.484c-1.859,5.875-3.219,12.109-4,18.516H182.828z"></path> </g> </g></svg>
+              `;
+            }
+            else if (jugador.jugador.gamesOnNextGW == 0) {
+              iconGame.innerHTML = `  
+              <svg fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <path d="M255.984,128c-26.516,0-46.453,11.344-59.922,33.891C182.688,184.516,176,215.25,176,254.016 c0,42.938,6.688,75.25,20.062,97.188C209.531,373.016,229.469,384,255.984,384c26.531,0,46.562-10.984,59.922-32.797 C329.297,329.266,336,296.953,336,254.016C336,170,309.266,128,255.984,128z M292.219,330.719 c-7.453,16.484-19.609,24.578-36.234,24.578c-16.688,0-28.703-8.094-36.266-24.578c-7.516-16.484-11.219-42.016-11.219-76.703 c0-34.391,3.703-59.156,11.219-74.484c7.562-15.266,19.578-22.906,36.266-22.906c16.625,0,28.781,7.641,36.234,22.906 c7.547,15.328,11.281,40.094,11.281,74.484C303.5,288.703,299.766,314.234,292.219,330.719z"></path> </g> </g></svg>
+              `;
+            }
+            else {
+              iconGame.innerHTML = `4+
+              `;
+            }
+            iconSate.style.display = "";
+            iconGame.style.display = "";
+        } else {
+            imagenJugador.style.display = "none";
+            botonInfo.style.display = "none";
+            botonCambio.style.display = "block";
+        }
+
+        // Ocultar el selector de jugadores específico para esta carta
+        selectorJugadores.style.display = "none";
+        const formacionSeleccionada = document.getElementById("formacion").value;
+        if (formacionSeleccionada === "5-0-0") {
+          const divValor = document.querySelector("#divValorTotal");
+          const divSubida = document.querySelector("#divSubidaTotal");
+          const divCap = document.querySelector("#divCapTotal");
+
+          const allCaps = field.querySelectorAll(".cardCap");
+          var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+          // Encontrar el mayor número usando Math.max
+          var mvpCap = 0;
+          mvpCap = Math.max(...capValues);
+          console.log("MVP: " + mvpCap);
+          divValor.textContent = valorTotal.toFixed(2) + " €";
+          divSubida.textContent = subidaTotal + " pts";
+          divCap.textContent = capTotal - mvpCap + " pts";
+            }
+    } else {
+        // Lidiar con el caso cuando no se encuentra el jugador
+        console.error("Jugador no encontrado:", jugadorSeleccionado);
+    }
+    }
+
+    } else if (field2.contains(carta)) {
+          // Obtener la información del jugador desde la lista de jugadores
+    if (jugadores.find((jugadorObj) => jugadorObj.jugador.name == jugadorSeleccionado)){
+      const jugador = jugadores.find((jugadorObj) => jugadorObj.jugador.name == jugadorSeleccionado);
+
+    // Verificar si se encontró el jugador antes de acceder a sus propiedades
+    if (jugador) {
+        imagenJugador.style.display = "none";
+        dorsalNombre.textContent = jugador.jugador.name;
+
+        const cards = document.querySelectorAll(".cardFormacion");
+        const roundProj = marcoCarta.querySelector(".roundProj");
+        const roundCap = marcoCarta.querySelector(".roundCap");
+
+        roundProj.style.display = "";
+
+        roundCap.style.display = "";
+
+        if (jugador.jugador.floorPrice == -1) {
+          cardValor.setAttribute("valor", 0.00);
+          cardValor.textContent = 0.00 + " €";
+          valorTotal2 += 0;
+        }
+        else {
+          cardValor.setAttribute("valor", jugador.jugador.floorPrice);
+          cardValor.textContent = jugador.jugador.floorPrice + " €";
+          valorTotal2 += jugador.jugador.floorPrice;
+        }
+        
+        cardSubida.setAttribute("subida", jugador.jugador.projectionScore);
+        cardSubida.textContent = jugador.jugador.projectionScore + " pts";
+        subidaTotal2 += jugador.jugador.projectionScore;
+
+        cardCap.setAttribute("cap", jugador.jugador.actualCap);
+        cardCap.textContent = jugador.jugador.actualCap + " pts";
+        capTotal2 += jugador.jugador.actualCap;
+
+        divValor2.textContent = valorTotal2;
+        divSubida2.textContent = subidaTotal2;
+        divCap2.textContent = capTotal2;
+        console.log(valorTotal2)
+        divValor2.textContent = valorTotal2.toFixed(2) + " €";
+        divSubida2.textContent = subidaTotal2 + " pts";
+        divCap2.textContent = capTotal2 + " pts";
+
+        roundCap.innerHTML = "Cap: " + jugador.jugador.actualCap;
+        roundProj.innerHTML = "Proj: " + jugador.jugador.projectionScore;
+
+        // Mostrar la imagen del jugador si se encuentra
+        if (jugador.jugador) {
+            imagenJugador.src = jugador.jugador.avatarUrl;
+            linkeo.href = "/" + jugador.jugador.name;
+            imagenJugador.style.display = "";
+            botonInfo.style.display = "block";
+            botonCambio.style.display = "block";
+            if(jugador.jugador.isInjured === "No"){
+              iconSate.className = "fa-sharp fa-solid fa-circle-check";
+              iconSate.style.color = "green";
+            }
+            else if(jugador.jugador.isInjured.startsWith("Out")){
+              iconSate.className = "fa-solid fa-square-xmark";
+              iconSate.style.color = "red";
+            }
+            else {
+              iconSate.className = "fas fa-exclamation-triangle";
+              iconSate.style.color = "orange";
+            }
+
+            if (jugador.jugador.gamesOnNextGW == 1){
+              iconGame.innerHTML = `  
+              <svg fill="#e30d0d" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#e30d0d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256c0,141.391,114.609,256,256,256c141.391,0,256-114.609,256-256 C512,114.609,397.391,0,256,0z M256,472c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M249.703,201.25H188v-25h19.312c6.859,0,13.422-1.219,19.5-3.594c6.172-2.375,11.438-5.641,15.797-9.797 c4.358-4.203,7.922-9.25,10.547-15.234c2.734-5.906,4.047-12.5,4.047-19.625H284v256h-34.297V201.25z"></path> </g> </g></svg>
+              `;
+            }
+            else if(jugador.jugador.gamesOnNextGW == 2){
+              iconGame.innerHTML = `  
+              <svg fill="#0fbd12" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#0fbd12" stroke-width="0.00512"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M176,209.75c2.531-24.406,10.969-44.141,25.375-59.219c14.344-15.031,34-22.531,58.859-22.531 c12.234,0,23.172,2.141,32.594,6.484c9.422,4.297,17.375,10.141,23.719,17.484c6.328,7.281,11.219,15.547,14.516,24.797 c3.281,9.266,4.938,18.844,4.938,28.703c0,8.625-0.984,16.391-3.062,23.266c-2.094,6.875-4.953,12.984-8.688,18.297 c-3.75,5.438-8.031,10.375-13.109,15c-4.922,4.688-10.328,9.078-16.188,13.234c-10.844,8.406-22.125,16.453-33.672,24.203 c-11.594,7.75-22.719,16.531-33.375,26.328c-3.875,3.672-7.062,7.438-9.594,11.453c-2.5,4.016-4.594,9.031-6.266,15.016h117.375 V384H178.531v-24.203c0-10.047,3.188-20,9.625-29.578c6.438-9.734,14.438-19.188,24.125-28.219 c9.625-9.031,20.188-17.828,31.781-26.359c11.609-8.516,22.531-16.766,32.891-24.781c7.844-5.984,14.031-12.359,18.672-19.234 c4.516-6.859,6.859-15.625,6.859-26.344c0-15.172-3.812-27.031-11.734-35.531c-7.781-8.484-17.938-12.734-30.516-12.734 c-15.359,0-27.531,4.703-36.453,14.109c-9,9.375-13.438,22.25-13.438,38.625H176z"></path> </g> </g></svg>
+              `;
+            }
+            else if(jugador.jugador.gamesOnNextGW == 3){
+              iconGame.innerHTML = `  
+              <svg fill="#00b3ff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#00b3ff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <g> <path d="M182.828,204.781c2.688-24.062,9.672-42.922,20.938-56.5C215.031,134.766,232.812,128,257.25,128 c21.156,0,37.938,5.969,50.25,17.875s18.469,27.75,18.469,47.469c0,14.125-2.562,25.375-7.781,33.781 c-5.234,8.375-13.453,14.906-24.781,19.625c5.422,1.75,10.641,4.25,15.688,7.5c5.188,3.25,9.734,7.406,13.672,12.594 c4.062,5.156,7.266,11.234,9.734,18.344c2.344,7.047,3.5,15.359,3.5,25.094c0,12.172-2.078,22.688-6.234,31.75 c-4.281,9.188-9.984,16.906-17.078,22.984c-7.234,6.219-15.641,10.938-25.047,14.188c-9.531,3.234-19.672,4.797-30.391,4.797 c-21.969,0-40.156-6.984-54.5-20.984c-14.344-13.984-23.25-34.547-26.75-62h32.562c3.188,20,8.734,34.047,16.5,42.203 c7.75,8.031,18.531,12.062,32.188,12.062c6.156,0,12.094-1.016,17.703-3.047c5.641-2.016,10.516-5.016,14.812-9.016 c4.312-4,7.734-8.734,10.391-14.281c2.5-5.688,3.703-11.906,3.703-18.656c0-13.516-4.125-25.016-12.5-34.438 c-8.25-9.375-19.641-14.094-34.109-14.094h-18.516v-28.719h18.516c6.719,0,12.422-1.062,17.109-3.281 c4.656-2.234,8.484-5.094,11.453-8.625c2.953-3.5,5.031-7.5,6.219-11.875c1.297-4.469,1.797-8.875,1.797-13.25 c0-12.375-3.406-22.109-10.25-29.156c-6.828-7.078-15.922-10.594-27.188-10.594c-6.953,0-12.797,1.281-17.656,3.984 c-4.812,2.641-8.875,6.156-12.078,10.547c-3.188,4.453-5.719,9.594-7.625,15.484c-1.859,5.875-3.219,12.109-4,18.516H182.828z"></path> </g> </g></svg>
+              `;
+            }
+            else if (jugador.jugador.gamesOnNextGW == 0) {
+              iconGame.innerHTML = `  
+              <svg fill="#ffffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"></path> <path d="M255.984,128c-26.516,0-46.453,11.344-59.922,33.891C182.688,184.516,176,215.25,176,254.016 c0,42.938,6.688,75.25,20.062,97.188C209.531,373.016,229.469,384,255.984,384c26.531,0,46.562-10.984,59.922-32.797 C329.297,329.266,336,296.953,336,254.016C336,170,309.266,128,255.984,128z M292.219,330.719 c-7.453,16.484-19.609,24.578-36.234,24.578c-16.688,0-28.703-8.094-36.266-24.578c-7.516-16.484-11.219-42.016-11.219-76.703 c0-34.391,3.703-59.156,11.219-74.484c7.562-15.266,19.578-22.906,36.266-22.906c16.625,0,28.781,7.641,36.234,22.906 c7.547,15.328,11.281,40.094,11.281,74.484C303.5,288.703,299.766,314.234,292.219,330.719z"></path> </g> </g></svg>
+              `;
+            }
+            else {
+              iconGame.innerHTML = `4+
+              `;
+            }
+            iconSate.style.display = "";
+            iconGame.style.display = "";
+        } else {
+            imagenJugador.style.display = "none";
+            botonInfo.style.display = "none";
+            botonCambio.style.display = "block";
+        }
+
+        // Ocultar el selector de jugadores específico para esta carta
+        selectorJugadores.style.display = "none";
+    } else {
+        // Lidiar con el caso cuando no se encuentra el jugador
+        console.error("Jugador no encontrado:", jugadorSeleccionado);
+    }
+    const formacionSeleccionada = document.getElementById("formacion").value;
+
+    if (formacionSeleccionada === "5-5-0") {
+        const divValor2 = document.querySelector("#divValorTotal2");
+        const divSubida2 = document.querySelector("#divSubidaTotal2");
+        const divCap2 = document.querySelector("#divCapTotal2");
+        divValor2.textContent = valorTotal2.toFixed(2) + " €";
+        divSubida2.textContent = subidaTotal2 + " pts";
+        divCap2.textContent = capTotal2 + " pts";
+
+        const allCaps = field2.querySelectorAll(".cardCap");
+        var capValues = Array.from(allCaps).map(card => parseInt(card.textContent));
+        // Encontrar el mayor número usando Math.max
+        var mvpCap = 0;
+        mvpCap = Math.max(...capValues);
+        divValor2.textContent = valorTotal2.toFixed(2) + " €";
+        divSubida2.textContent = subidaTotal2 + " pts";
+        
+        divCap2.textContent = capTotal2 - mvpCap + " pts";
+      }
+    }
+    } else {
+
+      console.error("La carta no está dentro de field ni de field2");
+    }
+
+
+    //Actualización Métricas Generales
+
+      
+}
+
+
+  // Muestra la formación predeterminada al cargar la página
+  window.addEventListener('pageshow', function (event) {
+    const selector = document.querySelector(".select");
+
+    // Restablecer a la opción inicial
+    selector.selectedIndex = 0;
+    mostrarFormacion();
+  });
+    
+   
+  </script>
+
+</body>
+
+
+    <div class="contenido">
+        <link rel="stylesheet" href="css/backg.css">
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        
+    </div>
+
+    <!-- Pie de pï¿½gina -->
+    <footer style="text-align: center; margin-top: 5%;" class="pie-de-pagina">
+      <p style="font-weight: bold">Redes sociales</p>
+      <div class="redes-sociales">
+        <a href="https://www.linkedin.com/in/alejandro-milla-ram%C3%ADrez-3ba742209/"><img style="width: 2%;" src="{{ url_for('static', filename='img/linkedin.png') }}" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/alex_milla99/"><img style="width: 2%;" src="{{ url_for('static', filename='img/instagram.png') }}" alt="Instagram"></a>
+        <a href="mailto:alejandromilla99@gmail.com"><img style="width: 2%;" src="{{ url_for('static', filename='img/email.png') }}" alt="Correo Electrónico"></a>
+      </div>
+  </footer>
+</body>
+</html>
